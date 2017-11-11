@@ -9,5 +9,5 @@ function comprobarClave(){
    	if (clave1 == clave2) 
       	alert("Las dos claves son iguales...\nRealizaríamos las acciones del caso positivo") 
    	else 
-      	alert("Las dos claves son distintas...") 
+      	alert("Las dos claves son distintasasdasd...") 
 } 
