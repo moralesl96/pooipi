@@ -1,0 +1,97 @@
+#form {
+  width: 250px;
+  margin: 0 auto;
+  height: 50px;
+}
+
+#form p {
+  text-align: center;
+}
+
+#form label {
+  font-size: 20px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  color: grey;
+}
+
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+label:hover,
+label:hover ~ label {
+  color: orange;
+}
+
+input[type="radio"]:checked ~ label {
+  color: orange;
+}
+
+ .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    
+}    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background: -webkit-linear-gradient(90deg, #5F5E5E 20%, #292828 80%);
+      padding: 25px;
+    }
+
+    body {
+   /* background-image: url("http://ivansbgtattoo.webcindario.com/images/fondo/parque.jpg");
+    */background-color: #292828;
+}
+
+.a {
+
+  color:white;
+}
+
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:200px;
+  }
+
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; 
+    }
+  }
+
+  /* Full-width input fields */
+input[type=text], input[type=password], input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+button {
+    background-color: red;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+
+}
+
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+    font-family: Verdana;
+}
