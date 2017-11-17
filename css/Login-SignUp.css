@@ -8,6 +8,10 @@ input[type=text], input[type=password], input[type=email] {
     box-sizing: border-box;
 }
 
+body {
+   /* background-image: url("http://ivansbgtattoo.webcindario.com/images/fondo/parque.jpg");
+    */background-color: white;
+}
 
 button {
     background-color: red;
@@ -88,7 +92,8 @@ button {
     }
 }
 
-    footer {
-      background: white;
-      padding: 25px;
-    }
+footer {
+    background: white;
+    padding: 25px;
+}
+
