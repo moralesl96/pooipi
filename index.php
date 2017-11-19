@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <link rel="shortcut icon" href="images/ico.ico">
@@ -20,16 +20,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a href="index.html"><img src="images/LogoSFC.png" style="position: relative; top: 0; left: 0;width:50px; height:50px"></a>
+      <a href="index.php"><img src="images/LogoSFC.png" style="position: relative; top: 0; left: 0;width:50px; height:50px"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="Lista Juegos.html">Juegos</a></li>
+        <li><a href="index.php">Inicio</a></li>
+        <li><a href="Lista Juegos.php">Juegos</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="registro.html"><span class="glyphicon glyphicon-user"></span> Registrar</a></li>
-        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion</a></li>
+        <li><a href="registro.php"><span class="glyphicon glyphicon-user"></span> Registrar</a></li>
+        <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion</a></li>
       </ul>
     </div>
   </div>
@@ -45,7 +45,7 @@
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-      <div class="item active"><a href="Proximamente.html"></a>
+      <div class="item active"><a href="Proximamente.php"></a>
         <img src="https://images-3.gog.com/0d5e192fb850a4403fe5072f8b9415cac1ae398a2b87093f5b2824b6758698f0.jpg" style="width:1280px; height:400px">
         <div class="carousel-caption">
           <h3>Hotline Miami</h3>
@@ -84,21 +84,21 @@
   <h3>Novedades</h3>
   <div class="row">
     <div class="col-sm-4">
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.html" style='text-decoration:none;color:black'>
+      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.php" style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray"><b>Space Joyce</b></div>
         <div align="center" class="panel-body"><img src="images/LogoSF.png" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
         <div class="panel-footer" style="background-color: gray"><div><b><span style="float:right">Mex$ 100.00</span>Bullet Hell  Shoot, 'Em Up, Arcade</b></div></div>
       </a></div>
     </div>
     <div class="col-sm-4">
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.html" style='text-decoration:none;color:black'>
+      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.php" style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray"><b>FEZ</b></div>
         <div align="center" class="panel-body"><img src="images/FEZ.jpg" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
         <div class="panel-footer" style="background-color: gray"><div><b><span style="float:right">Mex$ 99.99</span>Indie</b></div></div>
       </a></div>
     </div>
     <div class="col-sm-4"> 
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="noticia1.html" style='text-decoration:none;color:black'>
+      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="noticia1.php" style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray"><h3 style="color:black">Indies se ven afectados por norma de Sony y ESRB para juegos físicos</h3></div>
         <div align="center"><img src="https://cdn.elgrupoinformatico.com/Noticias/2015/06/playstation-4-logo-020615.jpg" class="img-responsive"></div>
       </a></div>
@@ -115,7 +115,7 @@
     </div>
 
     <div class="col-sm-4"> 
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="noticia2.html" style='text-decoration:none;color:black'>
+      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="noticia2.php" style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray"><h3 style="color:black">Guillermo del Toro habla sobre Death Stranding</h3></div>
         <div align="center"><img src="http://download.gamezone.com/uploads/image/data/1204824/death-stranding-game-has-already-begun-kojima-productions.jpg.optimal.jpg" class="img-responsive"></div>
       </a></div>

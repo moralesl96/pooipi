@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <link rel="shortcut icon" href="images/ico.ico">
@@ -19,16 +19,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a href="index.html"><img src="images/LogoSFC.png" style="position: relative; top: 0; left: 0;width:50px; height:50px"></a>
+      <a href="index.php"><img src="images/LogoSFC.png" style="position: relative; top: 0; left: 0;width:50px; height:50px"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="index.html"Inicio</a></li>
-        <li><a href="Lista Juegos.html">Juegos</a></li>
+        <li><a href="index.php"Inicio</a></li>
+        <li><a href="Lista Juegos.php">Juegos</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="registro.html"><span class="glyphicon glyphicon-user"></span> Registrar</a></li>
-        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion</a></li>
+        <li><a href="registro.php"><span class="glyphicon glyphicon-user"></span> Registrar</a></li>
+        <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion</a></li>
       </ul>
     </div>
   </div>

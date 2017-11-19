@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 
@@ -22,16 +22,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a href="index.html"><img src="images/LogoSFC.png" style="position: relative; top: 0; left: 0;width:50px; height:50px"></a>
+      <a href="index.php"><img src="images/LogoSFC.png" style="position: relative; top: 0; left: 0;width:50px; height:50px"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="Lista Juegos.html">Juegos</a></li>
+        <li><a href="index.php">Inicio</a></li>
+        <li><a href="Lista Juegos.php">Juegos</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="registro.html"><span class="glyphicon glyphicon-user"></span> Registrar</a></li>
-        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion</a></li>
+        <li><a href="registro.php"><span class="glyphicon glyphicon-user"></span> Registrar</a></li>
+        <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion</a></li>
       </ul>
     </div>
   </div>
@@ -145,37 +145,37 @@
   <br>
   <div class="row">
     <div class="col-sm-2">
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.html" style='text-decoration:none;color:black'>
+      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.php" style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray"><b>Space Joyce</b></div>
         <div align="center" class="panel-body"><img src="images/LogoSF.png" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
         <div class="panel-footer" style="background-color: gray"></div></a></div>
     </div>
     <div class="col-sm-2"> 
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.html" style='text-decoration:none;color:black'>
+      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.php" style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray" ><b>Hotline Miami</b></div>
         <div align="center" class="panel-body"><img src="images/Hotline Miami.jpg" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
         <div class="panel-footer" style="background-color: gray" ></div></a></div>    
     </div>
     <div class="col-sm-2"> 
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.html" style='text-decoration:none;color:black'>
+      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.php" style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray"><b>Transistor</b></div>
         <div align="center" class="panel-body"><img src="images/Transistor.jpg" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
         <div class="panel-footer" style="background-color: gray"></div></a></div>
     </div>
     <div class="col-sm-2"> 
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.html" style='text-decoration:none;color:black'>
+      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.php" style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray"><b>Dust</b></div>
         <div align="center" class="panel-body"><img src="images/Dust An Elysian Tale.jpg" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
         <div class="panel-footer" style="background-color: gray"></div></a></div>
     </div> 
     <div class="col-sm-2"> 
-     <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.html" style='text-decoration:none;color:black'>
+     <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.php" style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray"><b>Bastion</b></div>
         <div align="center" class="panel-body"><img src="images/Bastion.png" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
         <div class="panel-footer" style="background-color: gray"></div></a></div>
     </div>     
     <div class="col-sm-2"> 
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.html" style='text-decoration:none;color:black'>
+      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.php" style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray"><b>FEZ</b></div>
         <div align="center" class="panel-body"><img src="images/FEZ.jpg" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
         <div class="panel-footer" style="background-color: gray"></div></a></div>

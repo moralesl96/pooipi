@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <link rel="shortcut icon" href="images/ico.ico">
@@ -20,16 +20,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a href="index.html"><img src="images/LogoSFC.png" style="position: relative; top: 0; left: 0;width:50px; height:50px"></a>
+      <a href="index.php"><img src="images/LogoSFC.png" style="position: relative; top: 0; left: 0;width:50px; height:50px"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="Lista Juegos.html">Juegos</a></li>
+        <li><a href="index.php">Inicio</a></li>
+        <li><a href="Lista Juegos.php">Juegos</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="registro.html"><span class="glyphicon glyphicon-user"></span> Registrar</a></li>
-        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion</a></li>
+        <li><a href="registro.php"><span class="glyphicon glyphicon-user"></span> Registrar</a></li>
+        <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion</a></li>
       </ul>
     </div>
   </div>
@@ -38,21 +38,39 @@
 <div class="container">    
   <div class="row">
     <div class="col-sm-4">
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.html" style='text-decoration:none;color:black'>
-        <div class="panel-heading" style="background-color: gray"><b>Space Joyce</b></div>
+      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.php" style='text-decoration:none;color:black'>
+        <div class="panel-heading" style="background-color: gray"><b>
+          <?php
+           include("MySQL/conexion.php");
+           $consulta = "SELECT * FROM juegos where Nombre='Solid Joyce'";
+           $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+          
+          // Motrar el resultado de los registro de la base de datos
+          // Encabezado de la tabl a
+          
+          
+          // Bucle while que recorre cada registro y muestra cada campo en la tabla.
+          while ($columna = mysqli_fetch_array( $resultado ))
+          {
+            echo  $columna['Nombre'];
+          }
+          mysqli_close( $conexion );
+          
+          ?>
+        </b></div>
         <div align="center" class="panel-body"><img src="images/LogoSF.png" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
         <div class="panel-footer" style="background-color: gray"><div><b><span style="float:right">Mex$ 100.00</span>Bullet Hell  Shoot, 'Em Up, Arcade</b></div></div>
       </a></div>
     </div>
     <div class="col-sm-4"> 
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.html" style='text-decoration:none;color:black'>
+      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.php" style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray" ><b>Hotline Miami</b></div>
         <div align="center" class="panel-body"><img src="images/Hotline Miami.jpg" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
         <div class="panel-footer" style="background-color: gray" ><div><b><span style="float:right">Mex$ 100.00</span>Action, Indie</b></div></div>
      </a></div>
     </div>
     <div class="col-sm-4"> 
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.html" style='text-decoration:none;color:black'>
+      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.php" style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray"><b>Dust An Elysian Tale</b></div>
         <div align="center" class="panel-body"><img src="images/Dust An Elysian Tale.jpg" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
         <div class="panel-footer" style="background-color: gray"><div><b><span style="float:right">Mex$ 139.99</span>Action, Adventure, Indie, RPG</b></div></div>
@@ -64,21 +82,21 @@
 <div class="container">    
   <div class="row">
     <div class="col-sm-4">
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.html" style='text-decoration:none;color:black'>
+      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.php" style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray"><b>Transistor</b></div>
         <div align="center" class="panel-body"><img src="images/Transistor.jpg" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
         <div class="panel-footer" style="background-color: gray"><div><b><span style="float:right">Mex$ 169.99</span>Action, Indie, RPG</b></div></div>
       </div>
     </a></div>
     <div class="col-sm-4"> 
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.html" style='text-decoration:none;color:black'>
+      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.php" style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray"><b>Nuclear Throne</b></div>
         <div align="center" class="panel-body"><img src="images/Nuclear Throne.jpg" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
         <div class="panel-footer" style="background-color: gray"><div><b><span style="float:right">Mex$ 119.99</span>Action, Indie, RPG</b></div></div>
     </a></div>
     </div>
     <div class="col-sm-4"> 
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.html" style='text-decoration:none;color:black'>
+      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.php" style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray"><b>Bastion</b></div>
         <div align="center" class="panel-body"><img src="images/Bastion.png" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
         <div class="panel-footer" style="background-color: gray"><div><b><span style="float:right">Mex$ 139.99</span>Action, Indie, RPG</b></div></div>
@@ -90,21 +108,21 @@
 <div class="container">    
   <div class="row">
     <div class="col-sm-4">
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.html" style='text-decoration:none;color:black'>
+      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.php" style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray"><b>FEZ</b></div>
         <div align="center" class="panel-body"><img src="images/FEZ.jpg" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
         <div class="panel-footer" style="background-color: gray"><div><b><span style="float:right">Mex$ 99.99</span>Indie</b></div></div>
       </a></div>
     </div>
     <div class="col-sm-4"> 
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"> <a href="Proximamente.html" style='text-decoration:none;color:black'>
+      <div class="panel" style="background-color: #292828;border:solid;border-color: black"> <a href="Proximamente.php" style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray"><b>Furi</b></div>
         <div align="center" class="panel-body"><img src="images/Furi.jpg" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
         <div class="panel-footer" style="background-color: gray"><div><b><span style="float:right">Mex$ 250.00</span>Action</b></div></div>
       </a></div>
     </div>
     <div class="col-sm-4"> 
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"> <a href="Proximamente.html" style='text-decoration:none;color:black'>
+      <div class="panel" style="background-color: #292828;border:solid;border-color: black"> <a href="Proximamente.php" style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray"><b>Trine 3: The Artifacts of Power</b></div>
         <div align="center" class="panel-body"><img src="images/Trine 3.jpg" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
         <div class="panel-footer" style="background-color: gray"><div><b><span style="float:right">Mex$ 189.99</span>Action, Adventure, Indie</b></div></div>
@@ -116,7 +134,7 @@
 <div class="container">    
   <div class="row">
     <div class="col-sm-4">
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"> <a href="Proximamente.html" style='text-decoration:none;color:black'>
+      <div class="panel" style="background-color: #292828;border:solid;border-color: black"> <a href="Proximamente.php" style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray"> <b>Mark of the ninja</b></div>
         <div align="center" class="panel-body" ><img src="images/Mark of the Ninja.jpg" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
         <div class="panel-footer" style="background-color: gray"><div><b><span style="float:right">Mex$ 139.99</span>Action, Adventure, Indie</b></div></div>
