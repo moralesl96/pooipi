@@ -38,33 +38,30 @@
 <div class="container">    
   <div class="row">
     <div class="col-sm-4">
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.php" style='text-decoration:none;color:black'>
-        <div class="panel-heading" style="background-color: gray"><b>
-          <?php
+      <div class="panel" style="background-color: #292828;border:solid;border-color: black">
+        <a
+        <?php
            include("MySQL/conexion.php");
            $consulta = "SELECT * FROM juegos where Nombre='Solid Joyce'";
            $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-          
-          // Motrar el resultado de los registro de la base de datos
-          // Encabezado de la tabl a
-          
-          
-          // Bucle while que recorre cada registro y muestra cada campo en la tabla.
           while ($columna = mysqli_fetch_array( $resultado ))
           {
-            echo  $columna['Nombre'];
+            echo " href='juego.php?id=" . $columna['id_juegos']."'";
           }
           mysqli_close( $conexion );
-          
-          ?>
-        </b></div>
+        ?>
+
+        style='text-decoration:none;color:black'>
+        <div class="panel-heading" style="background-color: gray">
+        <b>Solid Joyce</b></div>
         <div align="center" class="panel-body"><img src="images/LogoSF.png" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
         <div class="panel-footer" style="background-color: gray"><div><b><span style="float:right">Mex$ 100.00</span>Bullet Hell  Shoot, 'Em Up, Arcade</b></div></div>
       </a></div>
     </div>
     <div class="col-sm-4"> 
       <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.php" style='text-decoration:none;color:black'>
-        <div class="panel-heading" style="background-color: gray" ><b>Hotline Miami</b></div>
+        <div class="panel-heading" style="background-color: gray" >
+        <b>Hotline Miami</b></div>
         <div align="center" class="panel-body"><img src="images/Hotline Miami.jpg" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
         <div class="panel-footer" style="background-color: gray" ><div><b><span style="float:right">Mex$ 100.00</span>Action, Indie</b></div></div>
      </a></div>

@@ -4,7 +4,21 @@
 
 <link rel="shortcut icon" href="images/ico.ico">
 
-  <title>Juego: "     xxxx       "</title>
+  <title>Juego: 
+  <?php
+
+  $id=$_GET['id'];
+  include("MySQL/conexion.php");
+  $consulta = "SELECT * FROM juegos where id_juegos=$id";
+  $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+  
+    while ($columna = mysqli_fetch_array( $resultado ))
+  {
+  echo $columna['Nombre']; 
+  }
+  mysqli_close( $conexion );
+  ?> 
+  </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -40,7 +54,20 @@
 
 <div class="container">
     <div>
-      <center><h3 style="color:white">Juego xxxx</h3></center><br>
+      <center><h3 style="color:white">
+      <?php
+        $id=$_GET['id'];
+        include("MySQL/conexion.php");
+        $consulta = "SELECT * FROM juegos where id_juegos=$id";
+        $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+        
+          while ($columna = mysqli_fetch_array( $resultado ))
+        {
+        echo $columna['Nombre']; 
+        }
+        mysqli_close( $conexion );
+      ?> 
+      </h3></center><br>
     </div>
 <div class="row">
   <div class="col-sm-8">
@@ -89,27 +116,23 @@
     </div>
   </div>
   <div class="col-sm-4">
+    <center><h2><b style="color:white;">Descripcion:</b></h2></center>
     <div class="well">
-       <p>Descripcion JUEGO LOCOCHON <br><br><br><br><br><br><br><br><br><br></p>
+       <p> 
+        <?php
+        $id=$_GET['id'];
+        include("MySQL/conexion.php");
+        $consulta = "SELECT * FROM juegos where id_juegos=$id";
+        $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+        
+          while ($columna = mysqli_fetch_array( $resultado ))
+        {
+        echo $columna['Descripcion']; 
+        }
+        mysqli_close( $conexion );
+        ?>
+       </p>
     </div>
-    <center>
-    <form>
-
-     <p class="clasificacion">
-    <input id="radio1" type="radio" name="estrellas" value="5"><!--
-    --><label for="radio1">★</label><!--
-    --><input id="radio2" type="radio" name="estrellas" value="4"><!--
-    --><label for="radio2">★</label><!--
-    --><input id="radio3" type="radio" name="estrellas" value="3"><!--
-    --><label for="radio3">★</label><!--
-    --><input id="radio4" type="radio" name="estrellas" value="2"><!--
-    --><label for="radio4">★</label><!--
-    --><input id="radio5" type="radio" name="estrellas" value="1"><!--
-    --><label for="radio5">★</label>
-     </p>
-     <h6 style="color:white">Calificame</h6>
-  </form>
-  </center>
   </div>
 </div>
 <hr>
@@ -145,7 +168,18 @@
   <br>
   <div class="row">
     <div class="col-sm-2">
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.php" style='text-decoration:none;color:black'>
+      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a 
+        <?php
+           include("MySQL/conexion.php");
+           $consulta = "SELECT * FROM juegos where Nombre='Solid Joyce'";
+           $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+          while ($columna = mysqli_fetch_array( $resultado ))
+          {
+            echo " href='juego.php?id=" . $columna['id_juegos']."'";
+          }
+          mysqli_close( $conexion );
+        ?>
+        style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray"><b>Space Joyce</b></div>
         <div align="center" class="panel-body"><img src="images/LogoSF.png" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
         <div class="panel-footer" style="background-color: gray"></div></a></div>
