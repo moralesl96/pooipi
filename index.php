@@ -97,14 +97,14 @@
         ?> 
         style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray"><b>Space Joyce</b></div>
-        <div align="center" class="panel-body"><img src="images/LogoSF.png" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
+        <div align="center"><img src="images/portadajoyce.jpg" class="img-responsive" style="width:360px;height:180px" alt="Image"></div>
         <div class="panel-footer" style="background-color: gray"><div><b><span style="float:right">Mex$ 100.00</span>Bullet Hell  Shoot, 'Em Up, Arcade</b></div></div>
       </a></div>
     </div>
     <div class="col-sm-4">
       <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.php" style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray"><b>FEZ</b></div>
-        <div align="center" class="panel-body"><img src="images/FEZ.jpg" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
+        <div align="center"><img src="images/FEZ.jpg" class="img-responsive" style="width:360px;height:180px" alt="Image"></div>
         <div class="panel-footer" style="background-color: gray"><div><b><span style="float:right">Mex$ 99.99</span>Indie</b></div></div>
       </a></div>
     </div>

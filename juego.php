@@ -54,7 +54,7 @@
 
 <div class="container">
     <div>
-      <center><h3 style="color:white">
+      <h3 style="color:white">
       <?php
         $id=$_GET['id'];
         include("MySQL/conexion.php");
@@ -67,7 +67,7 @@
         }
         mysqli_close( $conexion );
       ?> 
-      </h3></center><br>
+      </h3><br>
     </div>
 <div class="row">
   <div class="col-sm-8">
@@ -116,23 +116,39 @@
     </div>
   </div>
   <div class="col-sm-4">
-    <center><h2><b style="color:white;">Descripcion:</b></h2></center>
-    <div class="well">
-       <p> 
-        <?php
-        $id=$_GET['id'];
-        include("MySQL/conexion.php");
-        $consulta = "SELECT * FROM juegos where id_juegos=$id";
-        $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-        
+    <div class="panel" style="background-color: #292828;border:solid;border-color: black">
+        <div class="panel-heading" style="background-color: gray"></div>
+    <img src=
+      <?php
+           include("MySQL/conexion.php");
+           $consulta = "SELECT * FROM juegos where Nombre='Solid Joyce'";
+           $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
           while ($columna = mysqli_fetch_array( $resultado ))
-        {
-        echo $columna['Descripcion']; 
-        }
-        mysqli_close( $conexion );
+          {
+            echo  $columna['img'];
+          }
+          mysqli_close( $conexion );
         ?>
-       </p>
+    class="img-responsive">
+    <br>
+    
+         <p style="color:white"> 
+          <?php
+          $id=$_GET['id'];
+          include("MySQL/conexion.php");
+          $consulta = "SELECT * FROM juegos where id_juegos=$id";
+          $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+          
+            while ($columna = mysqli_fetch_array( $resultado ))
+          {
+          echo $columna['Descripcion']; 
+          }
+          mysqli_close( $conexion );
+          ?>
+         </p>
+       <div class="panel-heading" style="background-color: gray"></div>
     </div>
+    <center><img src="https://www.paypalobjects.com/webstatic/es_MX/mktg/logos-buttons/redesign/btn_11.png"/></center>
   </div>
 </div>
 <hr>
@@ -142,7 +158,7 @@
   <h3 ">Comentarios</h3>
   <div style="color:black" class="row">
     <div class="col-sm-2">
-       <p class="well">Che juego culero</p>
+       <p class="well">Bonito</p>
     </div>
     <div class="col-sm-2">
        <p class="well">+100 lince</p>
@@ -167,7 +183,7 @@
   <h3 ">Otros Juegos</h3>
   <br>
   <div class="row">
-    <div class="col-sm-2">
+    <div class="col-sm-3">
       <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a 
         <?php
            include("MySQL/conexion.php");
@@ -181,39 +197,28 @@
         ?>
         style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray"><b>Space Joyce</b></div>
-        <div align="center" class="panel-body"><img src="images/LogoSF.png" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
+        <div align="center"><img src="images/portadajoyce.jpg" class="img-responsive" style="width:360px;height:180px" alt="Image"></div>
         <div class="panel-footer" style="background-color: gray"></div></a></div>
     </div>
-    <div class="col-sm-2"> 
+    <div class="col-sm-3"> 
       <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.php" style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray" ><b>Hotline Miami</b></div>
-        <div align="center" class="panel-body"><img src="images/Hotline Miami.jpg" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
+        <div align="center"><img src="images/Hotline Miami.jpg" class="img-responsive" style="width:360px;height:180px" alt="Image"></div>
         <div class="panel-footer" style="background-color: gray" ></div></a></div>    
     </div>
-    <div class="col-sm-2"> 
+    <div class="col-sm-3"> 
       <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.php" style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray"><b>Transistor</b></div>
-        <div align="center" class="panel-body"><img src="images/Transistor.jpg" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
+        <div align="center"><img src="images/Transistor.jpg" class="img-responsive" style="width:360px;height:180px" alt="Image"></div>
         <div class="panel-footer" style="background-color: gray"></div></a></div>
     </div>
-    <div class="col-sm-2"> 
+    <div class="col-sm-3"> 
       <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.php" style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray"><b>Dust</b></div>
-        <div align="center" class="panel-body"><img src="images/Dust An Elysian Tale.jpg" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
+        <div align="center"><img src="images/Dust An Elysian Tale.jpg" class="img-responsive" style="width:360px;height:180px" alt="Image"></div>
         <div class="panel-footer" style="background-color: gray"></div></a></div>
     </div> 
-    <div class="col-sm-2"> 
-     <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.php" style='text-decoration:none;color:black'>
-        <div class="panel-heading" style="background-color: gray"><b>Bastion</b></div>
-        <div align="center" class="panel-body"><img src="images/Bastion.png" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
-        <div class="panel-footer" style="background-color: gray"></div></a></div>
-    </div>     
-    <div class="col-sm-2"> 
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.php" style='text-decoration:none;color:black'>
-        <div class="panel-heading" style="background-color: gray"><b>FEZ</b></div>
-        <div align="center" class="panel-body"><img src="images/FEZ.jpg" class="img-responsive" style="width:280px;height:150px" alt="Image"></div>
-        <div class="panel-footer" style="background-color: gray"></div></a></div>
-    </div> 
+    
   </div>
 </div><br>
 
