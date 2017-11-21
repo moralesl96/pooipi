@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <link rel="shortcut icon" href="images/ico.ico">
@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="js/script.js"></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -42,7 +43,13 @@
   </div>
 </nav>
 
-<center><br><br><br><br><br><br><br><br><h1 style="color:white">En construccion...</h1></center><br><br><br><br><br><br><br><br><br><br><br><br>
+<div style="text-align: center; color:white">
+  <h1>Compra Cancelada.</h1>
+
+  <a href="index.php">Presiona aqui para volver al inicio</a>
+
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <footer  class="container-fluid text-center">
   <p style="color:white" >© 2017 Solid Joyce Corporation. Todos los derechos reservados. Todas las marcas registradas pertenecen a sus respectivos dueños en UABC y otras facultades.
