@@ -34,21 +34,35 @@
   </div>
 </nav>
 
-  <form  action="index.php" name="registro" method="get">
-      <div style="color:black" class="container">
-        <label><b>Usuario</b></label>
-        <input type="text" placeholder="Ingresa tu usuario" name="username" required>
-
-      <label><b>Contraseña</b></label>
-        <input type="password" placeholder="Ingresa tu Contraseña" id="psw" required>
-
-        <input type="checkbox" checked="checked"> Recuerdame
-          <div class="clearfix">
-            
-           <button style="background-color:green" type="submit" class="signupbtn">Iniciar Sesion</button>
+<div class="row">
+  <div class="col-sm-3"> 
+  </div> 
+    <div class="col-sm-6"> 
+      <form  action="index.php" name="registro" method="get">
+          <div style="color:black">
+            <label><b>Usuario</b></label>
+            <input type="text" placeholder="Ingresa tu usuario" name="username" required>
+            <label><b>Contraseña</b></label>
+            <input type="password" placeholder="Ingresa tu Contraseña" id="psw" required>
+            <input type="checkbox" checked="checked"> Recuerdame
+              <div class="clearfix">
+                <div class="row">
+                  <div class="col-sm-4"> 
+                  </div> 
+                  <div class="col-sm-6">
+                  <button style="background-color:green" type="submit" class="signupbtn">Iniciar Sesion</button>
+                  </div> 
+                  <div class="col-sm-2"> 
+                  </div> 
+                </div>
+              </div>
           </div>
-      </div>
-  </form>
+      </form>
+    </div>
+  <div class="col-sm-3"> 
+  </div>
+</div> 
+
 <footer class="container-fluid text-center">
   <p style="color:black" >© 2017 Solid Joyce Corporation. Todos los derechos reservados. Todas las marcas registradas pertenecen a sus respectivos dueños en UABC y otras facultades.
 Todos los precios incluyen IVA (donde sea aplicable).</p>

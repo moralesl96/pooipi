@@ -1,18 +1,17 @@
 
-
  .navbar {
       margin-bottom: 0;
       border-radius: 0;
     
 }    
-    /* Add a gray background color and some padding to the footer */
-    footer {
-      background: -webkit-linear-gradient(90deg, #5F5E5E 20%, #292828 80%);
-    }
+footer 
+{
+  background: -webkit-linear-gradient(90deg, #000000 20%, #03567A 80%);
+  padding: 25px;
+}
 
-    body {
-   /* background-image: url("http://ivansbgtattoo.webcindario.com/images/fondo/parque.jpg");
-    */background-color: #292828;
+body {
+  background: -webkit-linear-gradient(270deg, #000000 20%, #03567A 80%)
 }
 
 .a {
@@ -32,31 +31,3 @@
       display: none; 
     }
   }
-
-  /* Full-width input fields */
-input[type=text], input[type=password], input[type=email] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-
-button {
-    background-color: red;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-
-}
-
-/* Add padding to container elements */
-.container {
-    padding: 16px;
-    font-family: Verdana;
-}

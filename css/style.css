@@ -1,29 +1,24 @@
- .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
+.navbar {
+   margin-bottom: 0;
+  border-radius: 0;
     
 }    
-    /* Add a gray background color and some padding to the footer */
-    footer {
-      background: -webkit-linear-gradient(90deg, #5F5E5E 20%, #292828 80%);
-      padding: 25px;
-    }
-
-    body {
-   /* background-image: url("http://ivansbgtattoo.webcindario.com/images/fondo/parque.jpg");
-    */background-color: #292828;
+    
+footer 
+{
+  background: -webkit-linear-gradient(90deg, #000000 20%, #03567A 80%);
+  padding: 25px;
 }
 
-.a {
-
-  color:white;
+body {
+  background: -webkit-linear-gradient(270deg, #000000 20%, #03567A 80%)
 }
 
-  .carousel-inner img {
-      width: 100%; /* Set width to 100% */
-      margin: auto;
-      min-height:200px;
-  }
+.carousel-inner img {
+  width: 100%; /* Set width to 100% */
+  margin: auto;
+  min-height:200px;
+}
 
   /* Hide the carousel text when the screen is less than 600 pixels wide */
   @media (max-width: 600px) {
@@ -31,3 +26,4 @@
       display: none; 
     }
   }
+

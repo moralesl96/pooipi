@@ -42,7 +42,7 @@
 </nav>
 <div class="container-fluid-news bg-1 text-center">
   <h3>Indies se ven afectados por norma de Sony y ESRB para juegos físicos</h3>
-  <img src="https://cdn.elgrupoinformatico.com/Noticias/2015/06/playstation-4-logo-020615.jpg" class="img-circle" alt="PS4" width="250" height="250">
+  <img src="https://img00.deviantart.net/b0db/i/2013/312/7/2/ps4_logo_wallpaper_06_by_b4h-d6thivy.jpg" class="img-circle" alt="PS4" width="250" height="250">
   <h4>Los desarrolladores deben pagar una cuota por obtener clasificación</h4>
 </div>
 
@@ -60,21 +60,21 @@
     Fuente: <a href="http://www.levelup.com">LevelUp</a></p>
 </div>
 
-<footer style="background-color: #474e5d" class="container-fluid text-center">
+<footer  class="container-fluid text-center">
   <p style="color:white" >© 2017 Solid Joyce Corporation. Todos los derechos reservados. Todas las marcas registradas pertenecen a sus respectivos dueños en UABC y otras facultades.
 Todos los precios incluyen IVA (donde sea aplicable).</p>
 <div class="row">
   <div class="col-lg-3">
-    <a href="https://www.facebook.com/manuel.vargas.50702" target="_blank" rel="noreferrer"><img src="images/twitter.png" style="width:15px; height:15px"> @Solid Joyce</a>
+    <a href="https://www.facebook.com/manuel.vargas.50702" target="_blank" rel="noreferrer"><img src="images/twitter.png" style="width:15px; height:15px"><font color=black> @Solid Joyce</font></a>
   </div>
   <div class="col-lg-3">
-    <a href="https://www.facebook.com/manuel.vargas.50702" target="_blank" rel="noreferrer"><img src="images/fb.png" style="width:23px; height:23px"> Solid Joyce</a> 
+    <a href="https://www.facebook.com/manuel.vargas.50702" target="_blank" rel="noreferrer"><img src="images/fb.png" style="width:23px; height:23px"><font color=black> Solid Joyce</font></a> 
   </div>
   <div class="col-lg-3">
-    <a href="https://www.facebook.com/manuel.vargas.50702" target="_blank" rel="noreferrer"><img src="images/yt.png" style="width:15px; height:15px"> Solid Joyce</a> 
+    <a href="https://www.facebook.com/manuel.vargas.50702" target="_blank" rel="noreferrer"><img src="images/yt.png" style="width:15px; height:15px"><font color=black> Solid Joyce</font></a> 
   </div>
   <div class="col-lg-3">
-    <a href="https://www.facebook.com/manuel.vargas.50702" target="_blank" rel="noreferrer"><img src="images/LogoSFC.png" style="width:20px; height:20px"> Sobre Nosotros</a> 
+    <a href="https://www.facebook.com/manuel.vargas.50702" target="_blank" rel="noreferrer"><img src="images/LogoSFC.png" style="width:20px; height:20px"><font color=black> Sobre Nosotros</font></a> 
   </div>
 </div>
 </footer>

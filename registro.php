@@ -33,26 +33,39 @@
     </div>
   </div>
 </nav>
-    <form  action="index.php" name="registro" method="get">
-      <div style="color:black" class="container">
-        <label><b>Usuario</b></label>
-        <input type="text" placeholder="Ingresa tu usuario" name="username" required>
-      
-      <label><b>Email</b></label>
-      <input type="email" placeholder="Ingresa tu Email" name="email" required>
-
-      <label><b>Contraseña</b></label>
-        <input type="password" placeholder="Ingresa tu Contraseña" id="psw" required>
-
+<div class="row">
+  <div class="col-sm-3"> 
+  </div> 
+    <div class="col-sm-6"> 
+      <form  action="index.php" name="registro" method="get">
+        <div style="color:black">
+          <label><b>Usuario</b></label>
+          <input type="text" placeholder="Ingresa tu usuario" name="username" required>
+          <label><b>Email</b></label>
+          <input type="email" placeholder="Ingresa tu Email" name="email" required>
+          <label><b>Contraseña</b></label>
+          <input type="password" placeholder="Ingresa tu Contraseña" id="psw" required>
           <label><b>Repetir contraseña</b></label>
-        <input type="password" placeholder="Confirma contraseña" id="psw-repeat" required>
-        <input type="checkbox" checked="checked"> He leído y acepto los <a href="https://www.youtube.com/watch?v=B4LvDiIi128&t=230s">Terminos y condiciones.</a>
+          <input type="password" placeholder="Confirma contraseña" id="psw-repeat" required>
+          <input type="checkbox" checked="checked"> He leído y acepto los <a href="https://www.youtube.com/watch?v=B4LvDiIi128&t=230s">Terminos y condiciones.</a>
           <div class="clearfix">
-            
-           <button style="background-color:green" type="submit" class="signupbtn">Registrar</button>
+          <div class="row">
+              <div class="col-sm-4"> 
+              </div>
+                <div class="col-sm-6">
+                  <button style="background-color:green" type="submit" class="signupbtn">Registrar</button>
+                </div>
+              <div class="col-sm-2"> 
+              </div>
           </div>
-      </div>
-  </form>
+          </div>
+        </div>
+      </form>
+    </div>
+  <div class="col-sm-3"> 
+  </div> 
+</div>
+
 <footer class="container-fluid text-center">
   <p style="color:black" >© 2017 Solid Joyce Corporation. Todos los derechos reservados. Todas las marcas registradas pertenecen a sus respectivos dueños en UABC y otras facultades.
 Todos los precios incluyen IVA (donde sea aplicable).</p>
