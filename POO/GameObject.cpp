@@ -18,10 +18,13 @@ void GameObject::draw(SDL_Renderer *pRenderer, TextureManager *pTexture)
                         m_currentFrame, pRenderer);
 }
 
-void GameObject::update()
+void GameObject::update(std::string id)
 {
- //m_currentFrame = int(((SDL_GetTicks() / 100) % 1));
- //m_y++;
+    if (id=="bala")
+    {
+        m_currentFrame = int(((SDL_GetTicks() / 100) % 1));
+        m_y-=3;
+    }
 }
 
 void GameObject::update_enemy()

@@ -8,7 +8,7 @@ class GameObject
 public:
  virtual void load(int x, int y, int width, int height, std::string textureID) = 0;
  virtual void draw(SDL_Renderer *pRenderer, TextureManager *pTexture);
- virtual void update();
+ virtual void update(std::string id);
  virtual void update_enemy();
  virtual void clean() {};
  int getX() { return m_x; }
@@ -19,6 +19,7 @@ public:
 
 protected:
  std::string m_textureID;
+ std::string id;
  int m_currentFrame;
  int m_currentRow;
  int m_x;
