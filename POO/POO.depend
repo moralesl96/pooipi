@@ -391,3 +391,57 @@
 	<iostream>
 	<SDL.h>
 
+1511591236 source:c:\xampp\htdocs\pooipi\poo\bullets.cpp
+	"Bullets.h"
+
+1511591236 c:\xampp\htdocs\pooipi\poo\bullets.h
+	"GameObject.h"
+
+1511591236 c:\xampp\htdocs\pooipi\poo\gameobject.h
+	"TextureManager2.h"
+
+1511591236 c:\xampp\htdocs\pooipi\poo\texturemanager2.h
+	<SDL.h>
+	<map>
+	<iostream>
+	"SDL_image.h"
+
+1511591236 source:c:\xampp\htdocs\pooipi\poo\enemy.cpp
+	"Enemy.h"
+
+1511591236 c:\xampp\htdocs\pooipi\poo\enemy.h
+	"GameObject.h"
+	<vector>
+
+1511591236 source:c:\xampp\htdocs\pooipi\poo\game2.cpp
+	"Game2.h"
+	"GameObject.h"
+	"TextureManager2.h"
+	<iostream>
+	<SDL.h>
+
+1511591236 c:\xampp\htdocs\pooipi\poo\game2.h
+	"TextureManager2.h"
+	"GameObject.h"
+	"Player.h"
+	"Enemy.h"
+	<vector>
+	"Bullets.h"
+
+1511591236 c:\xampp\htdocs\pooipi\poo\player.h
+	"GameObject.h"
+
+1511591236 source:c:\xampp\htdocs\pooipi\poo\gameobject.cpp
+	"GameObject.h"
+
+1511591236 source:c:\xampp\htdocs\pooipi\poo\main.cpp
+	<SDL.h>
+	"Game2.h"
+	<iostream>
+
+1511591236 source:c:\xampp\htdocs\pooipi\poo\player.cpp
+	"Player.h"
+
+1511591236 source:c:\xampp\htdocs\pooipi\poo\texturemanager2.cpp
+	"TextureManager2.h"
+
