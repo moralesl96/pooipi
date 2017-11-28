@@ -20,7 +20,10 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
       m_texture->load("assets/ufo-unafila.png", "enemy1", m_pRenderer);
       m_texture->load("assets/MS-SpaceShip.png", "nave", m_pRenderer);
       m_texture->load("assets/bala-peque.png", "bala", m_pRenderer);
-      m_texture->load("assets/bala-enemiga.png", "bala-enemiga", m_pRenderer);
+      m_texture->load("assets/bala-sinfondo-enemiga.png", "bala-enemiga", m_pRenderer);
+      m_texture->load("assets/nave-alien.png", "enemy2", m_pRenderer);
+      m_texture->load("assets/nave-grande.png", "enemy3", m_pRenderer);
+      m_texture->load("assets/cerebro1.png", "jefe", m_pRenderer);
 
 //********** Creando objetos Player y agregándolos al vector
       m_player = new Player();
@@ -28,11 +31,19 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
       //m_gamePlayer.push_back(m_player);
 
       m_enemy = new Enemy();
-      m_enemy->load(300, 300, 56, 30, "enemy1");
+      m_enemy->load(400, 200, 200, 200, "enemy2");
       m_gameEnemies.push_back(m_enemy);
 
       m_enemy = new Enemy();
-      m_enemy->load(200, 200, 56, 30, "enemy1");
+      m_enemy->load(200, 200, 163, 100, "enemy3");
+      m_gameEnemies.push_back(m_enemy);
+
+      m_enemy = new Enemy();
+      m_enemy->load(400, 100, 200, 180, "jefe");
+      m_gameEnemies.push_back(m_enemy);
+
+      m_enemy = new Enemy();
+      m_enemy->load(300, 300, 56, 30, "enemy1");
       m_gameEnemies.push_back(m_enemy);
     }
     else
@@ -159,21 +170,21 @@ m_player->update();
  time++;
  for(unsigned int i = 0; i != m_gameEnemies.size(); i++)
   {
-   m_gameEnemies[i]->update();
+   m_gameEnemies[i]->update(m_gameEnemies[i]->get_id());
    std::cout<<time<<std::endl;
    if(time==100)
     {
        m_bullet = new Bullets();
-       m_bullet->load(m_enemy->getX()+15,m_enemy->getY()+15,5,15,"bala-enemiga");
+       m_bullet->load(m_gameEnemies[i]->getX()+25,m_gameEnemies[i]->getY()+15,5,15,"bala-enemiga");
        m_gameEnemiesBullets.push_back(m_bullet);
-       for(int i = 0; i != m_gameEnemiesBullets.size(); i++)
+       //for(int i = 0; i != m_gameEnemiesBullets.size(); i++)
                 m_gameEnemiesBullets[i]->draw(m_pRenderer, m_texture);
        time=0;
     }
   }
   for(unsigned int i = 0; i != m_gameBullets.size(); i++)
   {
-   m_gameBullets[i]->update();
+   m_gameBullets[i]->update(m_gameBullets[i]->get_id());
   }
   for(unsigned int i = 0; i != m_gameEnemiesBullets.size(); i++)
   {
