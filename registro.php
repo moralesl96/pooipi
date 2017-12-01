@@ -1,4 +1,71 @@
-﻿<!DOCTYPE html>
+﻿<?php session_start();
+  
+  if (isset($_SESSION['usuario'])) {
+    header('Location:usuarios/index_usuario.php');
+  }
+
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $usuario = filter_var(strtolower($_POST['usuario']), FILTER_SANITIZE_STRING);
+    $password = $_POST['password'];
+    $password2  = $_POST['password2'];
+    $email  = $_POST['email'];
+
+  
+     $errores = '';
+
+      if (empty($usuario) or empty($email) or empty($password) or empty($password2)) {
+              $errores .= '<li>Rellene todo corretamente</li>';
+           }     
+      else {
+        try {
+          $conexion = new PDO('mysql:host=localhost;dbname=solidjoyce' , 'root' , '');
+        } catch (PDOException $e){
+          echo "Error" . $e->getMessage();
+        }
+
+        //verificar usuario
+        $statement = $conexion->prepare('SELECT * FROM usuarios WHERE usuario = :usuario LIMIT 1');
+        $statement->execute(array(':usuario' => $usuario));
+        $resultado = $statement->fetch();
+
+        if ($resultado != false) {
+          $errores .= '<li> El nombre de usuario ya existe</li>';
+        }
+
+        if($usuario == "admin"){
+          $errores .= '<li> No se puede crear un usuario con ese nombre</li>';
+        }
+
+        //Verificar correo  
+        $statement = $conexion->prepare('SELECT * FROM usuarios WHERE email= :email LIMIT 1');
+        $statement->execute(array(':email' => $email));
+        $resultado = $statement->fetch();
+
+        if ($resultado != false) {
+          $errores .= '<li> El correo ya existe</li>';
+        }
+
+        $password = hash('sha512', $password);
+        $password2 = hash('sha512', $password2);
+
+        if($password != $password2){
+          $errores .= '<li> Las contraseñas no coinciden</li>';
+        }
+      }  
+
+    if ($errores == '') {
+        $statement = $conexion->prepare('INSERT INTO usuarios (id_usuario,usuario,password, email) VALUES (null, :usuario, :password, :email)');
+        $statement->execute(array(
+          ':usuario' => $usuario, 
+          ':password' => $password,
+          ':email' => $email
+        )); 
+          header('Location: login.php');
+         }     
+  }
+
+?>
+<!DOCTYPE html>
 <html>
 <head>
   <link rel="shortcut icon" href="images/ico.ico">
@@ -34,35 +101,49 @@
   </div>
 </nav>
 <div class="row">
-  <div class="col-sm-3"> 
+  <div class="col-sm-4"> 
   </div> 
-    <div class="col-sm-6"> 
-      <form  action="index.php" name="registro" method="get">
+    <div class="col-sm-4"> 
+
+      <form  action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" name="login" method="POST">
         <div style="color:black">
+
           <label><b>Usuario</b></label>
-          <input type="text" placeholder="Ingresa tu usuario" name="username" required>
+          <input type="text"  placeholder="Ingresa tu usuario" name="usuario" required>
+
           <label><b>Email</b></label>
           <input type="email" placeholder="Ingresa tu Email" name="email" required>
+
           <label><b>Contraseña</b></label>
-          <input type="password" placeholder="Ingresa tu Contraseña" id="psw" required>
+          <input type="password" placeholder="Ingresa tu Contraseña" name="password" required>
+
           <label><b>Repetir contraseña</b></label>
-          <input type="password" placeholder="Confirma contraseña" id="psw-repeat" required>
+          <input type="password" placeholder="Confirma contraseña" name="password2" required>
           <input type="checkbox" checked="checked"> He leído y acepto los <a href="https://www.youtube.com/watch?v=B4LvDiIi128&t=230s">Terminos y condiciones.</a>
           <div class="clearfix">
           <div class="row">
-              <div class="col-sm-4"> 
+              <div class="col-sm-3"> 
               </div>
                 <div class="col-sm-6">
-                  <button style="background-color:green" type="submit" class="signupbtn">Registrar</button>
+                  <button style="background-color:green" type="submit">Registrar</button>
+                  <?php if (!empty($errores)): ?>
+                    <div class="error">
+                      <ul style="color: red">
+                       <?php echo $errores; ?>
+                      </ul>
+                    </div>
+                  <?php endif; ?>
                 </div>
-              <div class="col-sm-2"> 
+              <div class="col-sm-3"> 
               </div>
           </div>
           </div>
         </div>
       </form>
+      
+
     </div>
-  <div class="col-sm-3"> 
+  <div class="col-sm-4"> 
   </div> 
 </div>
 
@@ -80,7 +161,7 @@ Todos los precios incluyen IVA (donde sea aplicable).</p>
     <a href="https://www.facebook.com/manuel.vargas.50702" target="_blank" rel="noreferrer"><img src="images/yt.png" style="width:15px; height:15px"> Solid Joyce</a> 
   </div>
   <div class="col-lg-3">
-    <a href="https://www.facebook.com/manuel.vargas.50702" target="_blank" rel="noreferrer"><img src="images/LogoSFC.png" style="width:20px; height:20px"> Sobre Nosotros</a> 
+    <a href="Nosotros.php" target="_blank" rel="noreferrer"><img src="images/LogoSFC.png" style="width:20px; height:20px"> Sobre Nosotros</a> 
   </div>
 </div>
 </footer>

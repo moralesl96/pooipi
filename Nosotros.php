@@ -1,7 +1,7 @@
-﻿<?php session_start();
+<?php session_start();
   
   if (isset($_SESSION['usuario'])) {
-    header('Location:usuarios/index_usuario.php');
+    header('Location:usuarios/Nosotros.php');
   }
 ?>
 
@@ -9,12 +9,13 @@
 <html>
 <head>
   <link rel="shortcut icon" href="images/ico.ico">
-  <title>Solid Joyce</title>
+  <title>Sobre Nosotros</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="js/script.js"></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -37,13 +38,26 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="registro.php"><span class="glyphicon glyphicon-user"></span> Registrar</a></li>
         <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Iniciar sesion</a></li>
-        <li><a href="carro.php"><span><img style=" width:23px; height:23px" src="images/carro.png"></span> Carrito</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<center><br><br><br><br><br><br><br><br><h1 style="color:white">En construccion...</h1></center><br><br><br><br><br><br><br><br><br><br><br><br>
+<div class="row">
+  <div class="col-sm-4">
+    <h2>Eduardo Prieto Campos</h2>
+  </div>
+
+  <div class="col-sm-4">
+    <h2>Manuel De Jesus Vargas Felipe</h2>
+  </div>
+
+  <div class="col-sm-4">
+    <h2>Luis Eduardo Morales Ramos</h2>
+  </div>
+
+
+</div>
 
 <footer  class="container-fluid text-center">
   <p style="color:white" >© 2017 Solid Joyce Corporation. Todos los derechos reservados. Todas las marcas registradas pertenecen a sus respectivos dueños en UABC y otras facultades.

@@ -1,4 +1,41 @@
-﻿<!DOCTYPE html>
+﻿<?php session_start();
+  
+  if (isset($_SESSION['usuario'])) {
+    header('Location:usuarios/index_usuario.php');
+  }
+
+  $errores = '';
+
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $usuario = filter_var(strtolower($_POST['usuario']), FILTER_SANITIZE_STRING);
+    $password = $_POST['password'];
+    $password = hash('sha512', $password);
+
+    try {
+          $conexion = new PDO('mysql:host=localhost;dbname=solidjoyce' , 'root' , '');
+        } catch (PDOException $e){
+          echo "Error" . $e->getMessage();
+        }
+
+        $statement = $conexion->prepare('SELECT * FROM usuarios WHERE usuario = :usuario AND password = :password');
+        $statement->execute(array(
+          ':usuario' => $usuario, 
+          ':password' => $password));
+
+          $resultado = $statement->fetch();
+          
+          if ($resultado != false) {
+            $_SESSION['usuario'] = $usuario;
+            header('Location: usuarios\index_usuario.php');
+          }
+          else
+          {
+            $errores .= '<li>Datos incorrectos</li>';
+          }
+  }
+?>
+
+<!DOCTYPE html>
 <html>
 <head>
   <link rel="shortcut icon" href="images/ico.ico">
@@ -35,31 +72,39 @@
 </nav>
 
 <div class="row">
-  <div class="col-sm-3"> 
+  <div class="col-sm-4"> 
   </div> 
-    <div class="col-sm-6"> 
-      <form  action="index.php" name="registro" method="get">
+    <div class="col-sm-4"> 
+      <form  action="login.php" name="login" method="POST">
           <div style="color:black">
             <label><b>Usuario</b></label>
-            <input type="text" placeholder="Ingresa tu usuario" name="username" required>
+            <input type="text" placeholder="Ingresa tu usuario" name="usuario" required>
+
             <label><b>Contraseña</b></label>
-            <input type="password" placeholder="Ingresa tu Contraseña" id="psw" required>
-            <input type="checkbox" checked="checked"> Recuerdame
+            <input type="password" placeholder="Ingresa tu Contraseña" name="password" required>
+
               <div class="clearfix">
                 <div class="row">
-                  <div class="col-sm-4"> 
+                  <div class="col-sm-3"> 
                   </div> 
                   <div class="col-sm-6">
-                  <button style="background-color:green" type="submit" class="signupbtn">Iniciar Sesion</button>
+                  <button style="background-color:green" type="submit">Iniciar Sesion</button>
+                  <?php if (!empty($errores)): ?>
+                    <div class="error">
+                      <ul style="color: red">
+                       <?php echo $errores; ?>
+                      </ul>
+                    </div>
+                  <?php endif; ?>
                   </div> 
-                  <div class="col-sm-2"> 
+                  <div class="col-sm-3"> 
                   </div> 
                 </div>
               </div>
           </div>
       </form>
     </div>
-  <div class="col-sm-3"> 
+  <div class="col-sm-4"> 
   </div>
 </div> 
 
@@ -77,7 +122,7 @@ Todos los precios incluyen IVA (donde sea aplicable).</p>
     <a href="https://www.facebook.com/manuel.vargas.50702" target="_blank" rel="noreferrer"><img src="images/yt.png" style="width:15px; height:15px"> Solid Joyce</a> 
   </div>
   <div class="col-lg-3">
-    <a href="https://www.facebook.com/manuel.vargas.50702" target="_blank" rel="noreferrer"><img src="images/LogoSFC.png" style="width:20px; height:20px"> Sobre Nosotros</a> 
+    <a href="Nosotros.php" target="_blank" rel="noreferrer"><img src="images/LogoSFC.png" style="width:20px; height:20px"> Sobre Nosotros</a> 
   </div>
 </div>
 </footer>

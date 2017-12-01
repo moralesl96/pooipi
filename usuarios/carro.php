@@ -1,7 +1,9 @@
-﻿<?php session_start();
+<?php session_start();
   
   if (isset($_SESSION['usuario'])) {
-    header('Location:usuarios/index_usuario.php');
+  }
+  else{
+    header('Location: ../index.php');
   }
 ?>
 
@@ -9,12 +11,13 @@
 <html>
 <head>
   <link rel="shortcut icon" href="images/ico.ico">
-  <title>Solid Joyce</title>
+  <title>Carro de compras</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="js/script.js"></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -42,8 +45,8 @@
     </div>
   </div>
 </nav>
-
-<center><br><br><br><br><br><br><br><br><h1 style="color:white">En construccion...</h1></center><br><br><br><br><br><br><br><br><br><br><br><br>
+<center><h1 style="color: white">Carrito de compras</h1></center>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <footer  class="container-fluid text-center">
   <p style="color:white" >© 2017 Solid Joyce Corporation. Todos los derechos reservados. Todas las marcas registradas pertenecen a sus respectivos dueños en UABC y otras facultades.
