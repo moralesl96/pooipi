@@ -40,7 +40,8 @@
         <li><a href="#">Perfil</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-remove"></span> Cerrar sesion</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['usuario']; ?></a></li>
+        <li><a href="cerrar.php"><span class="glyphicon glyphicon-remove"></span> Cerrar sesion</a></li>
         <li><a href="carro.php"><span><img style=" width:23px; height:23px" src="../images/carro.png"></span> Carrito</a></li>
       </ul>
     </div>

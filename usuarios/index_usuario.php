@@ -42,6 +42,7 @@
         <li><a href="#">Perfil</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['usuario']; ?></a></li>
         <li><a href="cerrar.php"><span class="glyphicon glyphicon-remove"></span> Cerrar sesion</a></li>
         <li><a href="carro.php"><span><img style=" width:23px; height:23px" src="../images/carro.png"></span> Carrito</a></li>
       </ul>
@@ -123,7 +124,7 @@
     <div class="col-sm-4"> 
       <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="noticia1.php" style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray"><h3 style="color:black">Indies se ven afectados por norma de Sony y ESRB para juegos físicos</h3></div>
-        <div align="center"><img src="https://img00.deviantart.net/b0db/i/2013/312/7/2/ps4_logo_wallpaper_06_by_b4h-d6thivy.jpg" class="img-responsive"></div>
+        <div align="center"><img src="../images/ps4.jpg" class="img-responsive"></div>
       </a></div>
     </div>
   </div>
@@ -140,7 +141,7 @@
     <div class="col-sm-4"> 
       <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="noticia2.php" style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray"><h3 style="color:black">Guillermo del Toro habla sobre Death Stranding</h3></div>
-        <div align="center"><img src="http://download.gamezone.com/uploads/image/data/1204824/death-stranding-game-has-already-begun-kojima-productions.jpg.optimal.jpg" class="img-responsive"></div>
+        <div align="center"><img src="../images/toro.jpg" class="img-responsive"></div>
       </a></div>
     </div>
   </div>  
