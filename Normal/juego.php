@@ -1,6 +1,10 @@
 ﻿<?php session_start();
   
   if (isset($_SESSION['usuario'])) {
+    if ($_SESSION['usuario']=="admin") {
+      header('Location: ../Admin/index_admin.php');
+    }
+    else {
     include("../MySQL/conexion.php");
            $consulta = "SELECT * FROM juegos where Nombre='Space Joyce'";
            $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
@@ -10,6 +14,7 @@
           }
           mysqli_close( $conexion );
           header( 'Location:../usuarios/juego.php?id='.$pagina.'');
+    }
   }
 ?>
 

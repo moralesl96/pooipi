@@ -1,7 +1,12 @@
 ﻿<?php session_start();
   
   if (isset($_SESSION['usuario'])) {
-    header('Location:usuarios/index_usuario.php');
+    if ($_SESSION['usuario']=="admin") {
+      header('Location:Admin/index_admin.php');
+    }
+    else{
+      header('Location:usuarios/index_usuario.php');
+    }  
   }
 
   $errores = '';
@@ -17,6 +22,25 @@
           echo "Error" . $e->getMessage();
         }
 
+        if ($usuario=="admin") {
+          $statement = $conexion->prepare('SELECT * FROM administradores WHERE usuario = :usuario AND password = :password');
+           $statement->execute(array(
+          ':usuario' => $usuario, 
+          ':password' => $password));
+
+          $resultado = $statement->fetch();
+          
+          if ($resultado != false) {
+            $_SESSION['usuario'] = $usuario;
+            header('Location: Admin\index_admin.php');
+          }
+          else
+          {
+            $errores .= '<li>Datos incorrectos</li>';
+            echo "hola";
+          }
+        }
+        else {
         $statement = $conexion->prepare('SELECT * FROM usuarios WHERE usuario = :usuario AND password = :password');
         $statement->execute(array(
           ':usuario' => $usuario, 
@@ -32,6 +56,7 @@
           {
             $errores .= '<li>Datos incorrectos</li>';
           }
+        }  
   }
 ?>
 

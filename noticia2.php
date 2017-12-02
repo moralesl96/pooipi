@@ -1,7 +1,12 @@
 ﻿<?php session_start();
   
   if (isset($_SESSION['usuario'])) {
-    header('Location:usuarios/noticia2.php');
+    if ($_SESSION['usuario']=="admin") {
+      header('Location: Admin/index_admin.php');
+    }
+    else {
+    header('Location:usuarios/index_usuario.php');
+    }
   }
 ?>
 
