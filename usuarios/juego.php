@@ -143,15 +143,15 @@
     <div style="opacity: 1.0;">
            <div class="panel-heading" style="background-color: gray"></div>
     <img src=
-      <?php
+        <?php
            include("../MySQL/conexion.php");
            $consulta = "SELECT * FROM juegos where id_juego=$id";
            $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-          while ($columna = mysqli_fetch_array( $resultado ))
-          {
-            echo  $columna['Portada'];
-          }
-          mysqli_close( $conexion );
+            while ($columna = mysqli_fetch_array( $resultado ))
+            {
+              echo  $columna['Portada'];
+            }
+            mysqli_close( $conexion );
         ?>
     class="img-responsive">
     <br>

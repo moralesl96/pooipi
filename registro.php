@@ -59,7 +59,7 @@
       }  
 
     if ($errores == '') {
-        $statement = $conexion->prepare('INSERT INTO usuarios (id_usuario,usuario,password, email) VALUES (null, :usuario, :password, :email)');
+        $statement = $conexion->prepare('INSERT INTO usuarios (id_usuario,usuario,password, email, imagen) VALUES (null, :usuario, :password, :email, "../images/user.png")');
         $statement->execute(array(
           ':usuario' => $usuario, 
           ':password' => $password,
