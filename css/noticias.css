@@ -22,3 +22,12 @@
   background: -webkit-linear-gradient(90deg, #000000 20%, #474e5d 80%);
   padding: 25px;
 }
+
+.user{
+  width:200px; 
+  height:200px;
+  border-style: solid; 
+  border-width: 3px; 
+  border-color: white;
+  border-radius: 100px;
+}

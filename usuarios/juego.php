@@ -63,10 +63,22 @@
       <ul class="nav navbar-nav">
         <li><a href="index_usuario.php">Inicio</a></li>
         <li><a href="Lista Juegos.php">Juegos</a></li>
-        <li><a href="#">Perfil</a></li>
+        <li><a href="perfil.php">Perfil</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['usuario']; ?></a></li>
+        <li><a href="#"><span><img class="user" style=" width:23px; height:23px" src=
+          <?php
+            $nombre=$_SESSION['usuario'];
+           include("../MySQL/conexion.php");
+           $consulta = "SELECT * FROM usuarios where usuario='$nombre'";
+           $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+            while ($columna = mysqli_fetch_array( $resultado ))
+            {
+              echo  $columna['imagen'];
+            }
+            mysqli_close( $conexion );
+        ?> 
+          ></span> <?php echo $_SESSION['usuario']; ?></a></li>
         <li><a href="cerrar.php"><span class="glyphicon glyphicon-remove"></span> Cerrar sesion</a></li>
         <li><a href="carro.php"><span><img style=" width:23px; height:23px" src="../images/carro.png"></span> Carrito</a></li>
       </ul>

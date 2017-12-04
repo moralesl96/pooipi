@@ -39,7 +39,7 @@
       <ul class="nav navbar-nav">
         <li><a href="index_usuario.php">Inicio</a></li>
         <li><a href="Lista Juegos.php">Juegos</a></li>
-        <li><a href="#">Perfil</a></li>
+        <li><a href="perfil.php">Perfil</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span><img class="user" style=" width:23px; height:23px" src=
@@ -64,7 +64,7 @@
 
 <hr style="color: white;" />
 <div class="row">
-    <div style="padding-left: 50px;" class="col-sm-2">
+    <div style="padding-left: 145px;" class="col-sm-3">
       <img class="user" src=
       <?php
         $nombre=$_SESSION['usuario'];
@@ -80,26 +80,55 @@
         >
         <br><br>
         <div style="padding-left: 50px;">
-          <button type="button" onclick="window.open('cambiar_foto.php','_self')" >Cambiar foto</button>
+          <button class="button" type="button" onclick="window.open('.php','_self')" >Cambiar foto</button>
         </div>
     </div>
-    <div class="col-sm-6">
+
+    <div  class="col-sm-3">
       <p class="nombre"><?php echo $_SESSION['usuario']; ?></p>
+       <button class="button" type="button" onclick="window.open('cambiar_nombre.php','_self')" >Cambiar usuario</button>
     </div>
-    <div style="text-align: center;" class="col-sm-4">
+
+    <div class="col-sm-3">
+      <h2 style="text-align: center;">Info</h2>
+      <p style="text-align: center; color: white;">
+        <?php
+            $nombre=$_SESSION['usuario'];
+           include("../MySQL/conexion.php");
+           $consulta = "SELECT * FROM usuarios where usuario='$nombre'";
+           $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+            while ($columna = mysqli_fetch_array( $resultado ))
+            {
+              echo  $columna['email'];
+            }
+            mysqli_close( $conexion );
+        ?> 
+      </p>
+    </div>
+
+    <div style="text-align: center;" class="col-sm-3">
       <h2>Lista amigos</h2>
     </div>
 
-    <div class="col-sm-12">
+  <!-- Esto ayuda a que pagina sea estable no se porque la neta  -->
+  <div class="col-sm-12"> </div>  
 
+  <div class="row">
+    <div class="col-sm-9">
       <h1>Juegos</h1>
-
     </div>
 
-
+      <div class="col-sm-3">
+        <h1>Opciones</h1>
+        <center>
+          <button class="button" type="button" onclick="window.open('cambiar_email.php','_self')" >Cambiar correo</button>
+          <button class="button" type="button" onclick="window.open('cambiar_password.php','_self')" >Cambiar contraseña</button>
+        </center>
+      </div>
+  </div>  
 </div>
 
-
+<br>
 <footer  class="container-fluid text-center">
   <p style="color:white" >© 2017 Solid Joyce Corporation. Todos los derechos reservados. Todas las marcas registradas pertenecen a sus respectivos dueños en UABC y otras facultades.
 Todos los precios incluyen IVA (donde sea aplicable).</p>

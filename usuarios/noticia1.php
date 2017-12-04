@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="../css/noticias.css">
 </head>
 <body style="background-color:#1abc9c">
+  
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -37,16 +38,29 @@
       <ul class="nav navbar-nav">
         <li><a href="index_usuario.php">Inicio</a></li>
         <li><a href="Lista Juegos.php">Juegos</a></li>
-        <li><a href="#">Perfil</a></li>
+        <li><a href="perfil.php">Perfil</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['usuario']; ?></a></li>
+        <li><a href="#"><span><img class="user" style=" width:23px; height:23px" src=
+          <?php
+            $nombre=$_SESSION['usuario'];
+           include("../MySQL/conexion.php");
+           $consulta = "SELECT * FROM usuarios where usuario='$nombre'";
+           $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+            while ($columna = mysqli_fetch_array( $resultado ))
+            {
+              echo  $columna['imagen'];
+            }
+            mysqli_close( $conexion );
+        ?> 
+          ></span> <?php echo $_SESSION['usuario']; ?></a></li>
         <li><a href="cerrar.php"><span class="glyphicon glyphicon-remove"></span> Cerrar sesion</a></li>
         <li><a href="carro.php"><span><img style=" width:23px; height:23px" src="../images/carro.png"></span> Carrito</a></li>
       </ul>
     </div>
   </div>
 </nav>
+
 <div class="container-fluid-news bg-1 text-center">
   <h3>Indies se ven afectados por norma de Sony y ESRB para juegos físicos</h3>
   <img src="https://img00.deviantart.net/b0db/i/2013/312/7/2/ps4_logo_wallpaper_06_by_b4h-d6thivy.jpg" class="img-circle" alt="PS4" width="250" height="250">

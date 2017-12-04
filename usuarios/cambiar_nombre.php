@@ -8,6 +8,39 @@
   else{
     header('Location:../index.php');
   }
+
+
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $usuario = filter_var($_POST['usuario'], FILTER_SANITIZE_STRING);
+  
+    $errores = '';
+
+
+  try {
+          $conexion = new PDO('mysql:host=localhost;dbname=solidjoyce' , 'root' , '');
+        } catch (PDOException $e){
+          echo "Error" . $e->getMessage();
+        }
+
+        //verificar usuario
+        $statement = $conexion->prepare('SELECT * FROM usuarios WHERE usuario = :usuario LIMIT 1');
+        $statement->execute(array(':usuario' => $usuario));
+        $resultado = $statement->fetch();
+
+        if ($resultado != false) {
+          $errores .= '<li> El nombre de usuario ya existe</li>';
+        }
+    
+        if ($errores == '') {
+        $usuario_viejo=$_SESSION['usuario'];  
+        $statement = $conexion->prepare("UPDATE usuarios SET usuario = :usuario where usuario='$usuario_viejo'");
+        $statement->execute(array(
+          ':usuario' => $usuario
+        )); 
+          header('Location: cerrar.php');
+         }     
+          
+  }
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +54,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="js/script.js"></script>
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/stylemod.css">
 </head>
 <body>
 
@@ -62,16 +95,40 @@
   </div>
 </nav>
 
-<div style="color:white; text-align: center;">
-  <h1>¡Gracias por su compra!</h1>
+<header>
+    <div>
+      <h1>Modificar nombre de perfil</h1>
+    </div>
+</header>
 
-    <a href="../images/fb.png" download="fb">
-      Descargar Juego
-    </a>
+<div class="row">
+  <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+      <center>
+        <div class="tabla">
+          <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+             <div style="color:white">
+
+                <label><b>Cambia tu Usuario</b></label>
+                <input style="color: black;" type="text"  placeholder="Ingresa un nuevo usuario" name="usuario" required><br>
+
+
+                <input class="button" type="submit" value="Modificar"><br>
+
+                <?php if (!empty($errores)): ?>
+                    <div>
+                      <ul style="color:#F8E0E0;">
+                       <?php echo $errores; ?>
+                      </ul>
+                    </div>
+                  <?php endif; ?>
+              </div>
+          </form>
+        </div>
+      </center>
+    </div>
+  <div class="col-sm-4"></div>
 </div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-
 
 <footer  class="container-fluid text-center">
   <p style="color:white" >© 2017 Solid Joyce Corporation. Todos los derechos reservados. Todas las marcas registradas pertenecen a sus respectivos dueños en UABC y otras facultades.

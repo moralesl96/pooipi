@@ -39,10 +39,22 @@
       <ul class="nav navbar-nav">
         <li><a href="index_usuario.php">Inicio</a></li>
         <li><a href="Lista Juegos.php">Juegos</a></li>
-        <li><a href="#">Perfil</a></li>
+        <li><a href="perfil.php">Perfil</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['usuario']; ?></a></li>
+        <li><a href="#"><span><img class="user" style=" width:23px; height:23px" src=
+          <?php
+            $nombre=$_SESSION['usuario'];
+           include("../MySQL/conexion.php");
+           $consulta = "SELECT * FROM usuarios where usuario='$nombre'";
+           $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+            while ($columna = mysqli_fetch_array( $resultado ))
+            {
+              echo  $columna['imagen'];
+            }
+            mysqli_close( $conexion );
+        ?> 
+          ></span> <?php echo $_SESSION['usuario']; ?></a></li>
         <li><a href="cerrar.php"><span class="glyphicon glyphicon-remove"></span> Cerrar sesion</a></li>
         <li><a href="carro.php"><span><img style=" width:23px; height:23px" src="../images/carro.png"></span> Carrito</a></li>
       </ul>
@@ -60,23 +72,23 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active"><a href="Proximamente.php"></a>
-        <a href="Proximamente.php"><img src="https://images-3.gog.com/0d5e192fb850a4403fe5072f8b9415cac1ae398a2b87093f5b2824b6758698f0.jpg" style="width:1280px; height:400px"></a>
+        <a href="Proximamente.php"><img src="../images/banners/banner1.jpg" style="width:1280px; height:400px"></a>
         <div class="carousel-caption">
-          <h3>Hotline Miami</h3>
+      
         </div>      
       </div>
 
       <div class="item">
-        <img src="https://thebrotherhoodofevilgeeks.files.wordpress.com/2015/03/image6.jpg" style="width:1280px; height:400px">
+        <a href="Proximamente.php"><img src="../images/banners/banner2.jpg" style="width:1280px; height:400px"></a>
         <div class="carousel-caption">
-          <h3>Dust An Elysian Tail</h3>
+          
         </div>      
       </div>
 
       <div class="item">
-        <img src="https://9to5toys.files.wordpress.com/2015/02/transistor-sale-mac-01.png?w=1600&h=800" style="width:1280px; height:400px">
+        <a href="Proximamente.php"><img src="../images/banners/banner3.jpg" style="width:1280px; height:400px"></a>
         <div class="carousel-caption">
-          <h3>Transistor</h3>
+          
         </div>      
       </div>
     </div>

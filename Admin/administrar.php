@@ -51,8 +51,8 @@
 </nav>
 
 <div class="page-header">
-      <h3 style="color:white;font-size: 200%; text-align: left; padding-left: 660px;">Usuarios</h3><br>
-    </div>
+      <h3 style="color:white;font-size: 200%; text-align: center; padding-left: 60px;">Usuarios</h3><br>
+</div>
 
 <div class="row">
   <div class="col-sm-5">
@@ -79,7 +79,7 @@
         {
           echo "<tr>";
           echo "<td>" . $columna['usuario'] . "</td><td>" .  $columna['email'] ."</td>";
-          echo "<td><a  href='borrar.php?id=".$columna['id_usuario']."'> <font color=red> Eliminar usuario</font></a></td>";
+          echo "<td><a  href='borrar.php?id=".$columna['id_usuario']."'> <font color= #FC4747> Eliminar usuario</font></a></td>";
           echo "</tr>";
         }
         echo "</table>"; 

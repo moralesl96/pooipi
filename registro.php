@@ -10,7 +10,7 @@
   }
 
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $usuario = filter_var(strtolower($_POST['usuario']), FILTER_SANITIZE_STRING);
+    $usuario = filter_var($_POST['usuario'], FILTER_SANITIZE_STRING);
     $password = $_POST['password'];
     $password2  = $_POST['password2'];
     $email  = $_POST['email'];
@@ -124,7 +124,7 @@
 
           <label><b>Repetir contraseña</b></label>
           <input type="password" placeholder="Confirma contraseña" name="password2" required>
-          <input type="checkbox" checked="checked"> He leído y acepto los <a href="https://www.youtube.com/watch?v=B4LvDiIi128&t=230s">Terminos y condiciones.</a>
+          
           <div class="clearfix">
           <div class="row">
               <div class="col-sm-3"> 
@@ -132,7 +132,7 @@
                 <div class="col-sm-6">
                   <button style="background-color:green" type="submit">Registrar</button>
                   <?php if (!empty($errores)): ?>
-                    <div class="error">
+                    <div>
                       <ul style="color: red">
                        <?php echo $errores; ?>
                       </ul>

@@ -59,23 +59,23 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active"><a href="Proximamente.php"></a>
-        <a href="Proximamente.php"><img src="https://images-3.gog.com/0d5e192fb850a4403fe5072f8b9415cac1ae398a2b87093f5b2824b6758698f0.jpg" style="width:1280px; height:400px"></a>
+        <a href="Proximamente.php"><img src="images/banners/banner1.jpg" style="width:1280px; height:400px"></a>
         <div class="carousel-caption">
-          <h3>Hotline Miami</h3>
+          
         </div>      
       </div>
 
       <div class="item">
-        <img src="https://thebrotherhoodofevilgeeks.files.wordpress.com/2015/03/image6.jpg" style="width:1280px; height:400px">
+        <a href="Proximamente.php"><img src="images/banners/banner2.jpg" style="width:1280px; height:400px"></a>
         <div class="carousel-caption">
-          <h3>Dust An Elysian Tail</h3>
+          
         </div>      
       </div>
 
       <div class="item">
-        <img src="https://9to5toys.files.wordpress.com/2015/02/transistor-sale-mac-01.png?w=1600&h=800" style="width:1280px; height:400px">
+        <a href="Proximamente.php"><img src="images/banners/banner3.jpg" style="width:1280px; height:400px"></a>
         <div class="carousel-caption">
-          <h3>Transistor</h3>
+          
         </div>      
       </div>
     </div>

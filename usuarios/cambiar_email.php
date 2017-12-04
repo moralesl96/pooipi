@@ -8,6 +8,40 @@
   else{
     header('Location:../index.php');
   }
+
+
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $email  = $_POST['email'];
+  
+    $errores = '';
+
+
+  try {
+          $conexion = new PDO('mysql:host=localhost;dbname=solidjoyce' , 'root' , '');
+        } catch (PDOException $e){
+          echo "Error" . $e->getMessage();
+        }
+
+        //verificar usuario
+        $statement = $conexion->prepare('SELECT * FROM usuarios WHERE email = :email LIMIT 1');
+        $statement->execute(array(':email' => $email));
+        $resultado = $statement->fetch();
+
+        if ($resultado != false) {
+          $errores .= '<li> El email ya existe</li>';
+        }
+    
+        if ($errores == '') {
+        $email_viejo=$_SESSION['usuario']; 
+        $usuario=$_SESSION['usuario']; 
+        $statement = $conexion->prepare("UPDATE usuarios SET email = :email where usuario='$usuario'");
+        $statement->execute(array(
+          ':email' => $email
+        )); 
+          header('Location: cerrar.php');
+         }     
+          
+  }
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +55,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="js/script.js"></script>
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/stylemod.css">
 </head>
 <body>
 
@@ -62,16 +96,40 @@
   </div>
 </nav>
 
-<div style="color:white; text-align: center;">
-  <h1>¡Gracias por su compra!</h1>
+<header>
+    <div>
+      <h1>Modificar Email</h1>
+    </div>
+</header>
 
-    <a href="../images/fb.png" download="fb">
-      Descargar Juego
-    </a>
+<div class="row">
+  <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+      <center>
+        <div class="tabla">
+          <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+             <div style="color:white">
+
+                <label><b>Cambia tu Email</b></label>
+                <input style="color: black;" type="email"  placeholder="Ingresa un nuevo email" name="email" required><br>
+
+
+                <input class="button" type="submit" value="Modificar"><br>
+
+                <?php if (!empty($errores)): ?>
+                    <div>
+                      <ul style="color:#F8E0E0;">
+                       <?php echo $errores; ?>
+                      </ul>
+                    </div>
+                  <?php endif; ?>
+              </div>
+          </form>
+        </div>
+      </center>
+    </div>
+  <div class="col-sm-4"></div>
 </div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-
 
 <footer  class="container-fluid text-center">
   <p style="color:white" >© 2017 Solid Joyce Corporation. Todos los derechos reservados. Todas las marcas registradas pertenecen a sus respectivos dueños en UABC y otras facultades.

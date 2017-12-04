@@ -1,0 +1,57 @@
+.navbar {
+   margin-bottom: 0;
+  border-radius: 0;
+}    
+    
+footer 
+{
+  background: -webkit-linear-gradient(90deg, #000000 20%, #03567A 80%);
+  padding: 25px;
+}
+
+body {
+  background: -webkit-linear-gradient(270deg, #000000 20%, #03567A 80%)
+}
+
+
+h1 {
+
+  color: white;
+  text-align: center;
+}
+
+.user{
+  width:200px; 
+  height:200px;
+  border-style: solid; 
+  border-width: 3px; 
+  border-color: white;
+  border-radius: 100px;
+}
+
+.button {
+    background-color: yellow;
+    color: black ;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+
+}
+
+.cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+}
+
+.cancelbtn,.signupbtn {float:left;width:50%}
+
+input[type=text], input[type=password], input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}

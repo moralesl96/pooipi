@@ -12,7 +12,7 @@
   $errores = '';
 
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $usuario = filter_var(strtolower($_POST['usuario']), FILTER_SANITIZE_STRING);
+    $usuario = filter_var($_POST['usuario'], FILTER_SANITIZE_STRING);
     $password = $_POST['password'];
     $password = hash('sha512', $password);
 
@@ -37,7 +37,6 @@
           else
           {
             $errores .= '<li>Datos incorrectos</li>';
-            echo "hola";
           }
         }
         else {
