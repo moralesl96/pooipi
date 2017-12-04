@@ -92,9 +92,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)) {
     <form method="POST" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
       <label for="foto"> Selecciona tu foto</label>
       <input type="file" name="foto"><br>
-      <?php if (isset($error)): ?>
-        <ul style="color: red;"><?php echo $error; ?></ul>
-      <?php endif ?>
+      <div class="alert alert-danger">
+        <?php if (isset($error)): ?>
+          <ul><?php echo $error; ?></ul>
+        <?php endif ?>
+      </div>
 
       <input class="button" type="submit" value="subir foto">
     </form>

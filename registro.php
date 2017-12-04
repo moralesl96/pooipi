@@ -13,7 +13,7 @@
     $usuario = filter_var($_POST['usuario'], FILTER_SANITIZE_STRING);
     $password = $_POST['password'];
     $password2  = $_POST['password2'];
-    $email  = $_POST['email'];
+    $email  = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 
   
      $errores = '';
@@ -65,6 +65,7 @@
           ':password' => $password,
           ':email' => $email
         )); 
+          
           header('Location: login.php');
          }     
   }
@@ -114,10 +115,10 @@
         <div style="color:black">
 
           <label><b>Usuario</b></label>
-          <input type="text"  placeholder="Ingresa tu usuario" name="usuario" required>
+          <input type="text"  placeholder="Ingresa tu usuario" name="usuario" value="<?php if(isset($usuario)){ echo $usuario; }?>" required>
 
           <label><b>Email</b></label>
-          <input type="email" placeholder="Ingresa tu Email" name="email" required>
+          <input type="email" placeholder="Ingresa tu Email" name="email" value="<?php if(isset($email)){ echo $email; }?>" required>
 
           <label><b>Contraseña</b></label>
           <input type="password" placeholder="Ingresa tu Contraseña" name="password" required>
@@ -132,8 +133,8 @@
                 <div class="col-sm-6">
                   <button style="background-color:green" type="submit">Registrar</button>
                   <?php if (!empty($errores)): ?>
-                    <div>
-                      <ul style="color: red">
+                    <div class="alert alert-danger">
+                      <ul style="font-size: 12px">
                        <?php echo $errores; ?>
                       </ul>
                     </div>

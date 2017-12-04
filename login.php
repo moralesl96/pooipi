@@ -48,7 +48,9 @@
           $resultado = $statement->fetch();
           
           if ($resultado != false) {
+            $carrito = array();
             $_SESSION['usuario'] = $usuario;
+            $_SESSION['carrito'] = $carrito;
             header('Location: usuarios\index_usuario.php');
           }
           else
@@ -99,7 +101,7 @@
   <div class="col-sm-4"> 
   </div> 
     <div class="col-sm-4"> 
-      <form  action="login.php" name="login" method="POST">
+      <form  action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" name="login" method="POST">
           <div style="color:black">
             <label><b>Usuario</b></label>
             <input type="text" placeholder="Ingresa tu usuario" name="usuario" required>
@@ -114,8 +116,8 @@
                   <div class="col-sm-6">
                   <button style="background-color:green" type="submit">Iniciar Sesion</button>
                   <?php if (!empty($errores)): ?>
-                    <div class="error">
-                      <ul style="color: red">
+                    <div class="alert alert-danger" >
+                      <ul style="font-size: 12px">
                        <?php echo $errores; ?>
                       </ul>
                     </div>

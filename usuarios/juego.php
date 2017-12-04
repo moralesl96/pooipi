@@ -187,6 +187,7 @@
           mysqli_close( $conexion );
           ?>
          </p>
+         <center><a href=""><img style="width:140px; height:30px" src="../images/anadircarro.png"></a></center>
        <div class="panel-heading" style="background-color: gray"></div>
     </div>
   </div>

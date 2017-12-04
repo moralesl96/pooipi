@@ -117,8 +117,8 @@
                 <input class="button" type="submit" value="Modificar"><br>
 
                 <?php if (!empty($errores)): ?>
-                    <div>
-                      <ul style="color:#F8E0E0;">
+                    <div class="alert alert-danger">
+                      <ul>
                        <?php echo $errores; ?>
                       </ul>
                     </div>
