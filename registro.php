@@ -1,5 +1,5 @@
 ﻿<?php session_start();
-  
+
   if (isset($_SESSION['usuario'])) {
     if ($_SESSION['usuario']=="admin") {
       header('Location:Admin/index_admin.php');
@@ -59,11 +59,13 @@
       }  
 
     if ($errores == '') {
-        $statement = $conexion->prepare('INSERT INTO usuarios (id_usuario,usuario,password, email, imagen) VALUES (null, :usuario, :password, :email, "../images/user.png")');
+        $fecha_registro = date('Y-m-d');
+        $statement = $conexion->prepare("INSERT INTO usuarios (id_usuario,usuario,password, email, imagen,registro) VALUES (null, :usuario, :password, :email, '../images/user.png', :fecha_registro)");
         $statement->execute(array(
           ':usuario' => $usuario, 
           ':password' => $password,
-          ':email' => $email
+          ':email' => $email,
+          ':fecha_registro' => $fecha_registro
         )); 
           
           header('Location: login.php');

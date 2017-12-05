@@ -57,7 +57,7 @@ th, td {
 }
 
 .nombre{
-  text-align: left;
+  text-align: center;
   color: white;
   font-size: 50px;
   padding-top: 60px;
@@ -87,7 +87,7 @@ th, td {
   cursor:pointer;
   color:#3a8a9e;
   font-family:Georgia;
-  font-size:10px;
+  font-size:11px;
   padding:5px 25px;
   text-decoration:none;
 }
@@ -109,4 +109,17 @@ th, td {
 .tabla{
 
   text-align: center;
+}
+
+.membresia{
+
+  color: white;
+  font: oblique bold 150% cursive;
+}
+
+.juego{
+
+color: white;
+padding: 80px;
+
 }

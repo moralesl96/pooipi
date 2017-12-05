@@ -92,9 +92,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)) {
     <form method="POST" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
       <label for="foto"> Selecciona tu foto</label>
       <input type="file" name="foto"><br>
-      <div class="alert alert-danger">
+      <div>
         <?php if (isset($error)): ?>
-          <ul><?php echo $error; ?></ul>
+          <ul class="alert alert-danger"><?php echo $error; ?></ul>
         <?php endif ?>
       </div>
 
@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)) {
   </div>
 </center>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br>
 
 <footer  class="container-fluid text-center">
   <p style="color:white" >© 2017 Solid Joyce Corporation. Todos los derechos reservados. Todas las marcas registradas pertenecen a sus respectivos dueños en UABC y otras facultades.

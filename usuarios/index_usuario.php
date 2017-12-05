@@ -1,7 +1,7 @@
 <?php session_start();
   
-  if (isset($_SESSION['carrito'])) 
-    print_r($_SESSION['carrito']);
+ //if (isset($_SESSION['carrito'])) 
+   // print_r($_SESSION['carrito']);
 
   if (isset($_SESSION['usuario'])) {
     if ($_SESSION['usuario']=="admin") {
@@ -148,7 +148,7 @@
     <div class="col-sm-8"> 
       <div class="panel" style="background-color: #292828;border:solid;border-color: black">
         <div class="panel-heading" style="background-color: gray"></div>
-        <div align="center"><img src="../images/sponsor.jpg" class="img-responsive"></div>
+        <div align="center"><a href="juego_prueba.php"><img src="../images/sponsor.jpg" class="img-responsive"></a></div>
         <div class="panel-heading" style="background-color: gray"></div>
       </div>
     </div>
