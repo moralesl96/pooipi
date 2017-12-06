@@ -61,112 +61,112 @@
     </div>
   </div>
 </nav>
-<hr>
 
-<div class="row">
-  <center>
-    <div class="col-sm-2">
-      <img class="user" src=
-      <?php
-        $nombre=$_SESSION['usuario'];
-       include("../MySQL/conexion.php");
-           $consulta = "SELECT * FROM usuarios where usuario='$nombre'";
-           $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-            while ($columna = mysqli_fetch_array( $resultado ))
-            {
-              echo  $columna['imagen'];
-            }
-            mysqli_close( $conexion );
-        ?> 
-        >
-        <br><br>
-        <div>
-          <button class="button" type="button" onclick="window.open('cambiar_foto.php','_self')" >Cambiar foto</button>
-        </div>
-    </div>
-
-    <div class="col-sm-2">
-      <p class="nombre"><?php echo $_SESSION['usuario']; ?></p>
-    </div>
-  </center>
-
-    <div style="text-align: center;" class="col-sm-4">
-      <h2>Info</h2>
-      <p class="membresia"> Membresia: 
-        <?php
-            $nombre=$_SESSION['usuario'];
-           include("../MySQL/conexion.php");
-           $consulta = "SELECT * FROM usuarios where usuario='$nombre'";
-           $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-            while ($columna = mysqli_fetch_array( $resultado ))
-            {
-              $fecha = $columna['registro'];
-            }
-           
-            $oro = date('Y-m-d', strtotime('-1 year'));
-            $platino = date('Y-m-d', strtotime('-3 year'));
-
-            if ($fecha > $oro ) {
-              echo "Normal";
-              echo '</p> <img src="../images/normal.png">';
-            }
-
-             if ($fecha < $oro && $fecha > $platino) {
-              echo "Oro";
-              echo '</p> <img src="../images/oro.png">';
-            }
-
-            if ($fecha < $platino) {
-              echo "Platino";
-              echo '</p> <img src="../images/platino.png">';
-            }
-            mysqli_close( $conexion );
-        ?> 
-
-      </p>
-
-
-      <p style="text-align: center; color: white; font-size: 15px;">Email: <br>
-        <?php
-            $nombre=$_SESSION['usuario'];
-           include("../MySQL/conexion.php");
-           $consulta = "SELECT * FROM usuarios where usuario='$nombre'";
-           $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-            while ($columna = mysqli_fetch_array( $resultado ))
-            {
-              echo  $columna['email'];
-            }
-            mysqli_close( $conexion );
-        ?> 
-      </p>
-    </div>
-
-    <div style="text-align: center;" class="col-sm-4">
-      <h2>Lista amigos</h2>
-    </div>
-
-  <!-- Esto ayuda a que la pagina sea estable no se porque la neta  -->
-  <div class="col-sm-12"> </div>  
-
-
-<hr style="color: white;">
+<div style="padding-top: 20px;" class="container">
   <div class="row">
-
-    <div style="border-top: white;" class="col-sm-9">
-      <h1>Juegos</h1>
-    </div>
-
-      <div class="col-sm-3">
-        <h1>Opciones</h1>
-        <center>
-          <button class="button" type="button" onclick="window.open('cambiar_nombre.php','_self')" >Cambiar usuario</button><br><br>
-          <button class="button" type="button" onclick="window.open('cambiar_email.php','_self')" >Cambiar correo</button><br><br>
-          <button class="button" type="button" onclick="window.open('cambiar_password.php','_self')" >Cambiar contraseña</button>
-        </center>
+    <center>
+      <div class="col-sm-2">
+        <img class="user" src=
+        <?php
+          $nombre=$_SESSION['usuario'];
+         include("../MySQL/conexion.php");
+             $consulta = "SELECT * FROM usuarios where usuario='$nombre'";
+             $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+              while ($columna = mysqli_fetch_array( $resultado ))
+              {
+                echo  $columna['imagen'];
+              }
+              mysqli_close( $conexion );
+          ?> 
+          >
+          <br><br>
+          <div style="padding-left: 20px;">
+            <button class="button" type="button" onclick="window.open('cambiar_foto.php','_self')" >Cambiar foto</button>
+          </div>
       </div>
-  </div>  
-</div>
 
+      <div class="col-sm-2">
+        <p class="nombre"><?php echo $_SESSION['usuario']; ?></p>
+      </div>
+    </center>
+
+      <div style="text-align: center;" class="col-sm-4">
+        <h2>Info</h2>
+        <p class="membresia"> Membresia: 
+          <?php
+              $nombre=$_SESSION['usuario'];
+             include("../MySQL/conexion.php");
+             $consulta = "SELECT * FROM usuarios where usuario='$nombre'";
+             $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+              while ($columna = mysqli_fetch_array( $resultado ))
+              {
+                $fecha = $columna['registro'];
+              }
+             
+              $oro = date('Y-m-d', strtotime('-1 year'));
+              $platino = date('Y-m-d', strtotime('-3 year'));
+
+              if ($fecha > $oro ) {
+                echo "Normal";
+                echo '</p> <img src="../images/normal.png">';
+              }
+
+               if ($fecha < $oro && $fecha > $platino) {
+                echo "Oro";
+                echo '</p> <img src="../images/oro.png">';
+              }
+
+              if ($fecha < $platino) {
+                echo "Platino";
+                echo '</p> <img src="../images/platino.png">';
+              }
+              mysqli_close( $conexion );
+          ?> 
+
+        </p>
+
+
+        <p style="text-align: center; color: white; font-size: 15px;">Email: <br>
+          <?php
+              $nombre=$_SESSION['usuario'];
+             include("../MySQL/conexion.php");
+             $consulta = "SELECT * FROM usuarios where usuario='$nombre'";
+             $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+              while ($columna = mysqli_fetch_array( $resultado ))
+              {
+                echo  $columna['email'];
+              }
+              mysqli_close( $conexion );
+          ?> 
+        </p>
+      </div>
+
+      <div style="text-align: center;" class="col-sm-4">
+        <h2>Lista amigos</h2>
+      </div>
+
+    <!-- Esto ayuda a que la pagina sea estable no se porque la neta  -->
+    <div class="col-sm-12"> </div>  
+
+
+  <hr style="color: white;">
+    <div class="row">
+
+      <div style="border-top: white;" class="col-sm-9">
+        <h1>Juegos</h1>
+      </div>
+
+        <div class="col-sm-3">
+          <h1>Opciones</h1>
+          <center>
+            <button class="button" type="button" onclick="window.open('cambiar_nombre.php','_self')" >Cambiar usuario</button><br><br>
+            <button class="button" type="button" onclick="window.open('cambiar_email.php','_self')" >Cambiar correo</button><br><br>
+            <button class="button" type="button" onclick="window.open('cambiar_password.php','_self')" >Cambiar contraseña</button>
+          </center>
+        </div>
+    </div>  
+  </div>
+</div>
 <br>
 <footer  class="container-fluid text-center">
   <p style="color:white" >© 2017 Solid Joyce Corporation. Todos los derechos reservados. Todas las marcas registradas pertenecen a sus respectivos dueños en UABC y otras facultades.

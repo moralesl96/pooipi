@@ -5,16 +5,8 @@
       header('Location: ../Admin/index_admin.php');
     }
   }
-  else{
-    include("../MySQL/conexion.php");
-           $consulta = "SELECT * FROM juegos where Nombre='Space Joyce'";
-           $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-          while ($columna = mysqli_fetch_array( $resultado ))
-          {
-            $pagina =  $columna['id_juego'];
-          }
-          mysqli_close( $conexion );
-          header( 'Location:../Normal/juego.php?id='.$pagina.'');
+  else{  
+          header( 'Location:../index.php');
   }
 ?>
 
@@ -154,16 +146,16 @@
   <div class="col-sm-4">
     <div style="opacity: 1.0;">
            <div class="panel-heading" style="background-color: gray"></div>
-    <img src=
-        <?php
+    <img
+      <?php
            include("../MySQL/conexion.php");
            $consulta = "SELECT * FROM juegos where id_juego=$id";
            $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-            while ($columna = mysqli_fetch_array( $resultado ))
-            {
-              echo  $columna['Portada'];
-            }
-            mysqli_close( $conexion );
+          while ($columna = mysqli_fetch_array( $resultado ))
+          {
+            echo "src='". $columna['Portada']."'";
+          }
+          mysqli_close( $conexion );
         ?>
     class="img-responsive">
     <br>

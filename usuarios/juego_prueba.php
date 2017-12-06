@@ -65,7 +65,7 @@
   </div>
 </nav>
 
-<div class="">
+<div class="container">
   <br>
   <h1>Proximamente Half life 3</h1>
   <div style="text-align : justify;" class="juego">
@@ -87,7 +87,7 @@
   </div>
 
 
-<center><img src="../images/half_life_3.png"></center>
+<center><img class="img-responsive" src="../images/half_life_3.png"></center>
 
       <div class="tabla">
         <?php
@@ -118,7 +118,6 @@
         ?> 
       </div>  
 </div>
-<a href=""></a>
 
 <footer  class="container-fluid text-center">
   <p style="color:white" >© 2017 Solid Joyce Corporation. Todos los derechos reservados. Todas las marcas registradas pertenecen a sus respectivos dueños en UABC y otras facultades.

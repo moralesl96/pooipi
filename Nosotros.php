@@ -48,20 +48,23 @@
   </div>
 </nav>
 
-<div class="row">
-  <div class="col-sm-4">
-    <h2>Eduardo Prieto Campos</h2>
+<div class="container">
+  
+</div>
+  <div class="row">
+    <div class="col-sm-4">
+      <h2>Eduardo Prieto Campos</h2>
+    </div>
+
+    <div class="col-sm-4">
+      <h2>Manuel De Jesus Vargas Felipe</h2>
+    </div>
+
+    <div class="col-sm-4">
+      <h2>Luis Eduardo Morales Ramos</h2>
+    </div>
+
   </div>
-
-  <div class="col-sm-4">
-    <h2>Manuel De Jesus Vargas Felipe</h2>
-  </div>
-
-  <div class="col-sm-4">
-    <h2>Luis Eduardo Morales Ramos</h2>
-  </div>
-
-
 </div>
 
 <footer  class="container-fluid text-center">

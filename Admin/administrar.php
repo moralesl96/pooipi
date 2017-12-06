@@ -57,6 +57,7 @@
 <div class="row">
   <div class="col-sm-5">
   </div>
+  <center>
     <div class="col-sm-4">  
       <div class="table-responsive">
       <?php
@@ -88,6 +89,7 @@
       ?>
       </div>
     </div>  
+  </center>
   <div class="col-sm-3">
   </div>  
 </div>

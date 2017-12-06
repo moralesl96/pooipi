@@ -62,22 +62,22 @@
   </div>
 </nav>
 
-<div class="row">
-  <div class="col-sm-4">
-    <h2>Eduardo Prieto Campos</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h2>Eduardo Prieto Campos</h2>
+    </div>
+
+    <div class="col-sm-4">
+      <h2>Manuel De Jesus Vargas Felipe</h2>
+    </div>
+
+    <div class="col-sm-4">
+      <h2>Luis Eduardo Morales Ramos</h2>
+    </div>
+
   </div>
-
-  <div class="col-sm-4">
-    <h2>Manuel De Jesus Vargas Felipe</h2>
-  </div>
-
-  <div class="col-sm-4">
-    <h2>Luis Eduardo Morales Ramos</h2>
-  </div>
-
-
 </div>
-
 <footer  class="container-fluid text-center">
   <p style="color:white" >© 2017 Solid Joyce Corporation. Todos los derechos reservados. Todas las marcas registradas pertenecen a sus respectivos dueños en UABC y otras facultades.
 Todos los precios incluyen IVA (donde sea aplicable).</p>
