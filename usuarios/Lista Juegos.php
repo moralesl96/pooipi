@@ -75,7 +75,7 @@
             <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="juego.php?id=' . $columna['id_juego']. '" style="text-decoration:none;color:black">
               <div class="panel-heading" style="background-color: gray" >
               <b>'. $columna['Nombre'].'</b></div>
-              <div align="center"><img src="'. $columna['Portada'] .'" class="img-responsive"></div></a>
+              <div align="center"><img src="../'. $columna['Portada'] .'" class="img-responsive"></div></a>
              </div>
           </div>';
           }

@@ -13,8 +13,7 @@ if (isset($_SESSION['usuario'])) {
 	$borrar="DELETE from usuarios where id_usuario=$id";
 	mysqli_query($conexion,$borrar);
 	mysqli_close($conexion);
-	echo "$id";
-	header('location:administrar.php');
+	header('location:administrar_usuarios.php');
 	}
 }
 else

@@ -139,7 +139,7 @@
            $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
           while ($columna = mysqli_fetch_array( $resultado ))
           {
-            echo "src='". $columna['Portada']."'";
+            echo "src='../". $columna['Portada']."'";
           }
           mysqli_close( $conexion );
         ?>

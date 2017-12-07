@@ -41,7 +41,8 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="index_admin.php">Inicio</a></li>
-        <li><a href="administrar.php">Adminnistrar Usuarios</a></li>
+        <li><a href="administrar_usuarios.php">Adminnistrar Usuarios</a></li>
+        <li><a href="administrar_juegos.php">Adminnistrar Juegos</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="cerrar.php"><span class="glyphicon glyphicon-remove"></span> Cerrar sesion</a></li>
@@ -51,49 +52,43 @@
 </nav>
 
 <div class="page-header">
-      <h3 style="color:white;font-size: 200%; text-align: center; padding-left: 60px;">Usuarios</h3><br>
+      <h3 style="color:white;font-size: 200%; text-align: center;">Juegos</h3><br>
 </div>
+<div class="container">
+    <center>
+        <div class="table-responsive">
+        <?php
+          
+          include("../MySQL/conexion.php");
 
-<div class="row">
-  <div class="col-sm-5">
-  </div>
-  <center>
-    <div class="col-sm-4">  
-      <div class="table-responsive">
-      <?php
-        
-        include("../MySQL/conexion.php");
-
-        $consulta = "SELECT * FROM usuarios";
-        $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-        
-        
-        echo "<br>";
-        echo "<table border='2'>";
-        echo "<tr>";
-        echo "<th>Usuario</th>";
-        echo "<th>Email</th>";
-         echo "<th>Borrar</th>";
-        echo "</tr>";
-        
-        while ($columna = mysqli_fetch_array( $resultado ))
-        {
+          $consulta = "SELECT * FROM juegos";
+          $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+          
+          
+          echo "<br>";
+          echo "<table>";
           echo "<tr>";
-          echo "<td>" . $columna['usuario'] . "</td><td>" .  $columna['email'] ."</td>";
-          echo "<td><a  href='borrar.php?id=".$columna['id_usuario']."'> <font color= #FC4747> Eliminar usuario</font></a></td>";
+          echo "<th></th>";
+          echo "<th>Nombre</th>";
+          echo "<th>Genero</th>";
+          echo "<th>Precio</th>";
+           echo "<th>Borrar</th>";
           echo "</tr>";
-        }
-        echo "</table>"; 
-        mysqli_close( $conexion );
-        
-      ?>
-      </div>
-    </div>  
-  </center>
-  <div class="col-sm-3">
-  </div>  
+          
+          while ($columna = mysqli_fetch_array( $resultado ))
+          {
+            echo "<tr>";
+            echo "<td><img style=' width: 240px; height: 135px; ' src='../". $columna['Portada'] ."' class='img-responsive'></td><td>" . $columna['Nombre'] . "</td><td>" .  $columna['Genero'] ."</td><td>" . $columna['Precio'] . "</td>";
+            echo "<td><a  href='borrar_juegos.php?id=".$columna['id_juego']."'> <font color= #FC4747> Eliminar juego</font></a></td>";
+            echo "</tr>";
+          }
+          echo "</table>"; 
+          mysqli_close( $conexion );
+          
+        ?>
+        </div>
+    </center>
 </div>
-
 <br>
 <footer  class="container-fluid text-center">
   <p style="color:white" >© 2017 Solid Joyce Corporation. Todos los derechos reservados. Todas las marcas registradas pertenecen a sus respectivos dueños en UABC y otras facultades.

@@ -50,12 +50,53 @@
     </div>
   </div>
 </nav>
-<br><br><br><br><br><br><br><br>
-<div>
-  <h1>Estas en la pagina de admin</h1><br>
-  <h1>( ͡° ͜ʖ ͡°)</h1>
+
+<div class="page-header">
+      <h3 style="color:white;font-size: 200%; text-align: center;">Usuarios</h3><br>
 </div>
-<br><br><br><br><br><br><br><br>
+
+<div class="row">
+  <div class="col-sm-1">
+  </div>
+  <center>
+    <div class="col-sm-10">  
+      <div class="table-responsive">
+      <?php
+        
+        include("../MySQL/conexion.php");
+
+        $consulta = "SELECT * FROM usuarios";
+        $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+        
+        
+        echo "<br>";
+        echo "<table>";
+        echo "<tr>";
+        echo "<th>Avatar</th>";
+        echo "<th>Usuario</th>";
+        echo "<th>Email</th>";
+        echo "<th>Borrar</th>";
+        echo "</tr>";
+        
+        while ($columna = mysqli_fetch_array( $resultado ))
+        {
+          echo "<tr>";
+          echo "<td><center><img style=' width: 150px; height: 150px; ' src='". $columna['imagen'] ."' class='img-responsive'></center></td><td>" . $columna['usuario'] . "</td><td>" .  $columna['email'] ."</td>";
+          echo "<td><a  href=borrar_usuarios.php?id=".$columna['id_usuario']."'> <font color= #FC4747> Eliminar usuario</font></a></td>";
+          echo "</tr>";
+        }
+        echo "</table>"; 
+        mysqli_close( $conexion );
+        
+      ?>
+      </div>
+    </div>  
+  </center>
+  <div class="col-sm-1">
+  </div>  
+</div>
+
+<br>
 <footer  class="container-fluid text-center">
   <p style="color:white" >© 2017 Solid Joyce Corporation. Todos los derechos reservados. Todas las marcas registradas pertenecen a sus respectivos dueños en UABC y otras facultades.
 Todos los precios incluyen IVA (donde sea aplicable).</p>
