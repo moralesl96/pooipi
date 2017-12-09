@@ -50,21 +50,22 @@
 </nav>
 
 <div class="container">
-  
-</div>
-  <div class="row">
+  <div style="text-align: center;" class="row">
     <div class="col-sm-4">
-      <h2>Eduardo Prieto Campos</h2>
+      <h2>Eduardo</h2>
     </div>
 
     <div class="col-sm-4">
-      <h2>Manuel De Jesus Vargas Felipe</h2>
+      <h2>Manuel</h2>
+      <img style="width:127px; height:127px" src="images/creadores/manuel.jpeg">
     </div>
 
     <div class="col-sm-4">
-      <h2>Luis Eduardo Morales Ramos</h2>
+      <h2>Morales</h2>
+      <img style="width:127px; height:127px" src="images/creadores/morales.jpg">
     </div>
 
+  </div>
   </div>
 </div>
 

@@ -17,7 +17,7 @@
 <html>
 <head>
   <link rel="shortcut icon" href="../images/ico.ico">
-  <title>Solid Joyce</title>
+  <title>Pagina de administrador</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -41,8 +41,9 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="index_admin.php">Inicio</a></li>
-        <li><a href="administrar_usuarios.php">Adminnistrar Usuarios</a></li>
-        <li><a href="administrar_juegos.php">Adminnistrar Juegos</a></li>
+        <li><a href="administrar_usuarios.php">Administrar Usuarios</a></li>
+        <li><a href="administrar_juegos.php">Administrar Juegos</a></li>
+        <li><a href="administrar_noticias.php">Administrar Noticias</a></li>>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="cerrar.php"><span class="glyphicon glyphicon-remove"></span> Cerrar sesion</a></li>

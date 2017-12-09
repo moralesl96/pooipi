@@ -15,15 +15,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)) {
     $error='';
 
     if ($check !== false) {
-      $carpeta_destino = '../images/';
+      $carpeta_destino = '../images/noticias/';
       $foto = $carpeta_destino . $_FILES['foto']['name'];
-      $foto2 = 'images/' . $_FILES['foto']['name'];
+      $foto2 = 'images//noticias/' . $_FILES['foto']['name'];
       move_uploaded_file($_FILES['foto']['tmp_name'], $foto);
 
-      $nombre=$_POST['nombre'];
-      $genero=$_POST['genero'];
-      $precio=$_POST['precio'];
-      $descripcion=$_POST['descripcion'];
+      $titulo=$_POST['titulo'];
+      $info=$_POST['info'];
+      $contenido=$_POST['contenido'];
+      $autor=$_POST['autor'];
+
 
       try {
           $conexion = new PDO('mysql:host=localhost;dbname=solidjoyce' , 'root' , '');
@@ -32,12 +33,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)) {
         }
 
         //verificar usuario
-        $statement = $conexion->prepare('SELECT * FROM juegos WHERE nombre = :nombre LIMIT 1');
+        $statement = $conexion->prepare('SELECT * FROM noticias WHERE titulo = :titulo LIMIT 1');
         $statement->execute(array(':nombre' => $nombre));
         $resultado = $statement->fetch();
 
         if ($resultado != false) {
-          $errores .= '<li> El nombre del juego ya existe</li>';
+          $errores .= '<li> Ya hay una noticia con el mismo titulo</li>';
         }
     }
     else{
@@ -45,18 +46,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)) {
     }
 
     if ($error == '') {
-        $fecha_registro = date('Y-m-d');
-        $statement = $conexion->prepare("INSERT INTO juegos (id_juego,Nombre,Genero, Descripcion, Portada,precio,Fecha_salida) VALUES (null, :nombre, :genero, :descripcion, :foto2,:precio, :fecha_registro)");
+        $fecha_subida = date('Y-m-d');
+        $statement = $conexion->prepare("INSERT INTO noticias (id_noticias,titulo,info, Contenido, autor,fecha_subida,foto) VALUES (null, :titulo, :info, :contenido,:autor,:fecha_subida, :foto2)");
         $statement->execute(array(
-          ':nombre' => $nombre, 
-          ':genero' => $genero,
-          ':descripcion' => $descripcion,
+          ':titulo' => $titulo, 
+          ':info' => $info,
+          ':contenido' => $contenido,
           ':foto2' => $foto2,
-          ':precio' => $precio,
-          ':fecha_registro' => $fecha_registro
+          ':autor' => $autor,
+          ':fecha_subida' => $fecha_subida
         )); 
           
-         header('Location: administrar_juegos.php');
+         header('Location: administrar_noticias.php');
          } 
 }
 ?>
@@ -65,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)) {
 <html>
 <head>
   <link rel="shortcut icon" href="../images/ico.ico">
-  <title>Subir juego</title>
+  <title>Subir noticia</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -102,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)) {
 
 <header>
     <div>
-      <h1>Agregar un juego</h1>
+      <h1>Agregar una noticia</h1>
     </div>
 </header>
 
@@ -115,11 +116,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)) {
       <div style="color: white;" class="form">
         <form method="POST" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
 
-          <input style="color: black;" type="text"  placeholder="Ingresa nombre" name="nombre" required><br>
-          <input style="color: black;" type="text"  placeholder="Ingresa genero" name="genero" required><br>
-          <input style="color: black;" type="text"  placeholder="Ingresa precio" name="precio" required><br>
-          <textarea style="color: black;" name="descripcion" placeholder="Descripcion del juego"></textarea>
-          <label for="foto"> Selecciona foto del juego</label>
+          <input style="color: black;" type="text"  placeholder="Ingresa titulo para la noticia" name="titulo" required><br>
+          <input style="color: black;" type="text"  placeholder="Ingresa informacion para la noticia" name="info" required><br>
+          <input style="color: black;" type="text"  placeholder="Ingresa autor" name="autor" required><br>
+          <textarea style="color: black;" name="contenido" placeholder="Contenido de la noticia"></textarea>
+          <label for="foto"> Selecciona foto de la noticia</label>
           <input type="file" name="foto"><br>
           <div>
             <?php if (!empty($error)): ?>
@@ -131,7 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)) {
             <?php endif; ?>
           </div>
 
-          <input class="button" type="submit" value="Subir juego">
+          <input class="button" type="submit" value="Subir noticia">
         </form>
       </div>
     </center>

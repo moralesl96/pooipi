@@ -69,7 +69,7 @@
   <h3>
       <?php echo $titulo ?>
     </h3>
-  <img src=<?php echo'"../' . $foto  . '"' ?> class="img-circle" width="250" height="250">
+  <img src=<?php echo'"../' . $foto  . '"' ?> class="img-circle" width="350" height="350">
   <h4>
     <?php echo $info ?>
   </h4>

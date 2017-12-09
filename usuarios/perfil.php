@@ -87,11 +87,11 @@
       </div>
 
       <div class="col-sm-3">
-        <p class="nombre"><?php echo $_SESSION['usuario']; ?></p>
+        <p class="nombre"><?php echo $_SESSION['usuario']; ?> <a href="cambiar_nombre.php"><img style="width:25px; height:25px" src="../images/reload.png"></a></p>
       </div>
     </center>
 
-      <div style="text-align: center;" class="col-sm-3">
+      <div style="text-align: center;" class="col-sm-4">
         <h2>Info</h2>
         <p class="membresia"> Membresia: 
           <?php
@@ -135,7 +135,7 @@
              $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
               while ($columna = mysqli_fetch_array( $resultado ))
               {
-                echo  $columna['email'];
+                echo  $columna['email'] .' '. '<a href="cambiar_email.php"><img style="width:25px; height:25px" src="../images/reload.png"></a>';
                 echo '<br>Miembro desde: ' .  $columna['registro'];
               }
               mysqli_close( $conexion );
@@ -143,7 +143,7 @@
         </p>
       </div>
 
-      <div style="text-align: center;" class="col-sm-4">
+      <div style="text-align: center;" class="col-sm-3">
         <h2>Lista amigos</h2>
       </div>
 
@@ -161,9 +161,8 @@
         <div class="col-sm-3">
           <h1>Opciones</h1>
           <center>
-            <button class="button" type="button" onclick="window.open('cambiar_nombre.php','_self')" >Cambiar usuario</button><br><br>
-            <button class="button" type="button" onclick="window.open('cambiar_email.php','_self')" >Cambiar correo</button><br><br>
-            <button class="button" type="button" onclick="window.open('cambiar_password.php','_self')" >Cambiar contraseña</button>
+            <button class="button" type="button" onclick="window.open('cambiar_password.php','_self')" >Cambiar contraseña</button><br><br>
+            <button class="button" type="button" onclick="window.open('borrar perfil.php','_self')" >Borrar perfil</button>
           </center>
         </div>
     </div>  

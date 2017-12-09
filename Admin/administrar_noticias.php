@@ -17,7 +17,7 @@
 <html>
 <head>
   <link rel="shortcut icon" href="../images/ico.ico">
-  <title>Administrar juegos</title>
+  <title>Administrar noticias</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -43,7 +43,7 @@
         <li><a href="index_admin.php">Inicio</a></li>
         <li><a href="administrar_usuarios.php">Administrar Usuarios</a></li>
         <li><a href="administrar_juegos.php">Administrar Juegos</a></li>
-        <li><a href="administrar_noticias.php">Administrar Noticias</a></li>
+        <li><a href="administrar_noticias.php">Administrar Noticias</a></li>>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="cerrar.php"><span class="glyphicon glyphicon-remove"></span> Cerrar sesion</a></li>
@@ -53,50 +53,50 @@
 </nav>
 
 <div class="page-header">
-      <h3 style="color:white;font-size: 200%; text-align: center;">Usuarios</h3><br>
+      <h3 style="color:white;font-size: 200%; text-align: center;">Noticias</h3>
 </div>
 
-<div class="row">
-  <div class="col-sm-1">
+
+  <div class="container-fluid">
+    <center>
+    <button class="button" type="button" onclick="window.open('subir_noticia.php','_self')" >Agregar noticia</button>
+    </center>
   </div>
-  <center>
-    <div class="col-sm-10">  
-      <div class="table-responsive">
-      <?php
-        
-        include("../MySQL/conexion.php");
+<div class="container">
+    <center>
+        <div class="table-responsive">
+        <?php
+          
+          include("../MySQL/conexion.php");
 
-        $consulta = "SELECT * FROM usuarios";
-        $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-        
-        
-        echo "<br>";
-        echo "<table>";
-        echo "<tr>";
-        echo "<th>Avatar</th>";
-        echo "<th>Usuario</th>";
-        echo "<th>Email</th>";
-        echo "<th>Borrar</th>";
-        echo "</tr>";
-        
-        while ($columna = mysqli_fetch_array( $resultado ))
-        {
+          $consulta = "SELECT * FROM noticias";
+          $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+          
+          
+          echo "<br>";
+          echo "<table>";
           echo "<tr>";
-          echo "<td><center><img style=' width: 150px; height: 150px; ' src='". $columna['imagen'] ."' class='img-responsive'></center></td><td>" . $columna['usuario'] . "</td><td>" .  $columna['email'] ."</td>";
-          echo "<td><a href= 'borrar_usuarios.php?id=".$columna['id_usuario']."'> <font color= #FC4747> Eliminar usuario</font></a></td>";
+          echo "<th></th>";
+          echo "<th>Titulo</th>";
+          echo "<th>Autor</th>";
+          echo "<th>Info</th>";
+           echo "<th>Borrar</th>";
           echo "</tr>";
-        }
-        echo "</table>"; 
-        mysqli_close( $conexion );
-        
-      ?>
-      </div>
-    </div>  
-  </center>
-  <div class="col-sm-1">
-  </div>  
+          
+          while ($columna = mysqli_fetch_array( $resultado ))
+          {
+            echo "<tr>";
+            echo "<td><img style=' width: 360px; height: 135px; ' src='../". $columna['foto'] ."' class='img-responsive'></td><td>" . $columna['titulo'] . "</td><td>" .  $columna['autor'] ."</td><td>" . $columna['info'] . "</td>";
+            echo "<td><a  href='borrar_noticia.php?id=".$columna['id_noticias']."'> <font color= #FC4747> Eliminar noticia</font></a></td>";
+            echo "</tr>";
+          }
+          echo "</table>"; 
+          mysqli_close( $conexion );
+          
+        ?>
+        </div>
+    </center>
 </div>
-
 <br>
 <footer  class="container-fluid text-center">
   <p style="color:white" >© 2017 Solid Joyce Corporation. Todos los derechos reservados. Todas las marcas registradas pertenecen a sus respectivos dueños en UABC y otras facultades.
