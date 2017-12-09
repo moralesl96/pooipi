@@ -65,7 +65,7 @@
 <html>
 <head>
   <link rel="shortcut icon" href="images/ico.ico">
-  <title>Solid Joyce/Login</title>
+  <title>Inicio de sesion</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

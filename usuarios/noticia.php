@@ -57,6 +57,7 @@
       <ul class="nav navbar-nav">
         <li><a href="index_usuario.php">Inicio</a></li>
         <li><a href="Lista Juegos.php">Juegos</a></li>
+        <li><a href="Lista noticias.php">Noticias</a></li>
         <li><a href="perfil.php">Perfil</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">

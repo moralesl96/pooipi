@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)) {
 <html>
 <head>
   <link rel="shortcut icon" href="../images/ico.ico">
-  <title>Solid Joyce</title>
+  <title>Cambiar foto de perfil</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -58,6 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)) {
       <ul class="nav navbar-nav">
         <li><a href="index_usuario.php">Inicio</a></li>
         <li><a href="Lista Juegos.php">Juegos</a></li>
+        <li><a href="Lista noticias.php">Noticias</a></li>
         <li><a href="perfil.php">Perfil</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
