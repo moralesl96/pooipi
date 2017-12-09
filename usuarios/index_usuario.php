@@ -1,7 +1,7 @@
 <?php session_start();
   
- //if (isset($_SESSION['carrito'])) 
-   // print_r($_SESSION['carrito']);
+ if (isset($_SESSION['carrito'])) 
+   print_r($_SESSION['carrito']);
 
   if (isset($_SESSION['usuario'])) {
     if ($_SESSION['usuario']=="admin") {
@@ -127,13 +127,22 @@
           }
           mysqli_close( $conexion );
     ?>
-    <div class="col-sm-4">
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Proximamente.php" style='text-decoration:none;color:black'>
-        <div class="panel-heading" style="background-color: gray"><b>FEZ</b></div>
-        <div align="center"><img src="../images/FEZ.jpg" class="img-responsive" style="width:360px;height:180px" alt="Image"></div>
-        <div class="panel-footer" style="background-color: gray"><div><b><span style="float:right">Mex$ 99.99</span>Indie</b></div></div>
-      </a></div>
-    </div>
+    <?php
+      include("../MySQL/conexion.php");
+           $consulta = "SELECT * FROM juegos where Nombre ='FEZ'";
+           $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+          while ($columna = mysqli_fetch_array( $resultado ))
+          {
+            echo'<div class="col-sm-4"> 
+            <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="Normal/juego.php?id=' . $columna['id_juego']. '" style="text-decoration:none;color:black">
+              <div class="panel-heading" style="background-color: gray" >
+              <b>'. $columna['Nombre'].'</b></div>
+              <div align="center"><img src="../'. $columna['Portada'] .'" class="img-responsive"></div></a>
+             </div>
+          </div>';
+          }
+          mysqli_close( $conexion );
+    ?>
     <div class="col-sm-4"> 
       <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="noticia1.php" style='text-decoration:none;color:black'>
         <div class="panel-heading" style="background-color: gray"><h3 style="color:black">Indies se ven afectados por norma de Sony y ESRB para juegos físicos</h3></div>

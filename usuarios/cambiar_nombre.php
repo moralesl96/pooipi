@@ -111,8 +111,7 @@
 
                 <label><b>Cambia tu Usuario</b></label>
                 <input style="color: black;" type="text"  placeholder="Ingresa un nuevo usuario" name="usuario" required><br>
-
-
+                
                 <input class="button" type="submit" value="Modificar"><br>
 
                 <?php if (!empty($errores)): ?>

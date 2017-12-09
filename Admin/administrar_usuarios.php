@@ -82,7 +82,7 @@
         {
           echo "<tr>";
           echo "<td><center><img style=' width: 150px; height: 150px; ' src='". $columna['imagen'] ."' class='img-responsive'></center></td><td>" . $columna['usuario'] . "</td><td>" .  $columna['email'] ."</td>";
-          echo "<td><a  href=borrar_usuarios.php?id=".$columna['id_usuario']."'> <font color= #FC4747> Eliminar usuario</font></a></td>";
+          echo "<td><a href= 'borrar_usuarios.php?id=".$columna['id_usuario']."'> <font color= #FC4747> Eliminar usuario</font></a></td>";
           echo "</tr>";
         }
         echo "</table>"; 

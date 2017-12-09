@@ -85,12 +85,12 @@
           </div>
       </div>
 
-      <div class="col-sm-2">
+      <div class="col-sm-3">
         <p class="nombre"><?php echo $_SESSION['usuario']; ?></p>
       </div>
     </center>
 
-      <div style="text-align: center;" class="col-sm-4">
+      <div style="text-align: center;" class="col-sm-3">
         <h2>Info</h2>
         <p class="membresia"> Membresia: 
           <?php
@@ -126,7 +126,7 @@
         </p>
 
 
-        <p style="text-align: center; color: white; font-size: 15px;">Email: <br>
+        <p style="text-align: center; color: white; font-size: 20px;">Email: <br>
           <?php
               $nombre=$_SESSION['usuario'];
              include("../MySQL/conexion.php");
@@ -135,6 +135,7 @@
               while ($columna = mysqli_fetch_array( $resultado ))
               {
                 echo  $columna['email'];
+                echo '<br>Miembro desde: ' .  $columna['registro'];
               }
               mysqli_close( $conexion );
           ?> 

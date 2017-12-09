@@ -52,8 +52,15 @@
 </nav>
 
 <div class="page-header">
-      <h3 style="color:white;font-size: 200%; text-align: center;">Juegos</h3><br>
+      <h3 style="color:white;font-size: 200%; text-align: center;">Juegos</h3>
 </div>
+
+
+  <div class="container-fluid">
+    <center>
+    <button class="button" type="button" onclick="window.open('subir_juego.php','_self')" >Agregar juegos</button>
+    </center>
+  </div>
 <div class="container">
     <center>
         <div class="table-responsive">

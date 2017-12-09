@@ -187,42 +187,22 @@
   <h3 ">Otros Juegos</h3>
   <br>
   <div class="row">
-    <div class="col-sm-3">
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a 
-        <?php
-           include("../MySQL/conexion.php");
-           $consulta = "SELECT * FROM juegos where Nombre='Space Joyce'";
+   <?php
+      include("../MySQL/conexion.php");
+           $consulta = "SELECT * FROM juegos LIMIT 4";
            $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
           while ($columna = mysqli_fetch_array( $resultado ))
           {
-            echo " href='juego.php?id=" . $columna['id_juego']."'";
+            echo'<div class="col-sm-3"> 
+            <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="juego.php?id=' . $columna['id_juego']. '" style="text-decoration:none;color:black">
+              <div class="panel-heading" style="background-color: gray" >
+              <b>'. $columna['Nombre'].'</b></div>
+              <div align="center"><img src="../'. $columna['Portada'] .'" class="img-responsive"></div></a>
+             </div>
+          </div>';
           }
           mysqli_close( $conexion );
-        ?>
-        style='text-decoration:none;color:black'>
-        <div class="panel-heading" style="background-color: gray"><b>Space Joyce</b></div>
-        <div align="center"><img src="../images/portadajoyce.jpg" class="img-responsive" style="width:360px;height:180px" alt="Image"></div>
-        <div class="panel-footer" style="background-color: gray"></div></a></div>
-    </div>
-    <div class="col-sm-3"> 
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="../Proximamente.php" style='text-decoration:none;color:black'>
-        <div class="panel-heading" style="background-color: gray" ><b>Hotline Miami</b></div>
-        <div align="center"><img src="../images/Hotline Miami.jpg" class="img-responsive" style="width:360px;height:180px" alt="Image"></div>
-        <div class="panel-footer" style="background-color: gray" ></div></a></div>    
-    </div>
-    <div class="col-sm-3"> 
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="../Proximamente.php" style='text-decoration:none;color:black'>
-        <div class="panel-heading" style="background-color: gray"><b>Transistor</b></div>
-        <div align="center"><img src="../images/Transistor.jpg" class="img-responsive" style="width:360px;height:180px" alt="Image"></div>
-        <div class="panel-footer" style="background-color: gray"></div></a></div>
-    </div>
-    <div class="col-sm-3"> 
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="../Proximamente.php" style='text-decoration:none;color:black'>
-        <div class="panel-heading" style="background-color: gray"><b>Dust</b></div>
-        <div align="center"><img src="../images/Dust An Elysian Tale.jpg" class="img-responsive" style="width:360px;height:180px" alt="Image"></div>
-        <div class="panel-footer" style="background-color: gray"></div></a></div>
-    </div> 
-    
+    ?>
   </div>
 </div><br>
 

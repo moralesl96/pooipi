@@ -48,7 +48,7 @@
           $resultado = $statement->fetch();
           
           if ($resultado != false) {
-            $carrito = array();
+            $carrito = array('juegos');
             $_SESSION['usuario'] = $usuario;
             $_SESSION['carrito'] = $carrito;
             header('Location: usuarios\index_usuario.php');
