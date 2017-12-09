@@ -42,6 +42,7 @@
       <ul class="nav navbar-nav">
         <li><a href="index_usuario.php">Inicio</a></li>
         <li><a href="Lista Juegos.php">Juegos</a></li>
+        <li><a href="Lista noticias.php">Noticias</a></li>
         <li><a href="perfil.php">Perfil</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -144,10 +145,21 @@
           mysqli_close( $conexion );
     ?>
     <div class="col-sm-4"> 
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="noticia1.php" style='text-decoration:none;color:black'>
-        <div class="panel-heading" style="background-color: gray"><h3 style="color:black">Indies se ven afectados por norma de Sony y ESRB para juegos físicos</h3></div>
-        <div align="center"><img src="../images/ps4.jpg" class="img-responsive"></div>
-      </a></div>
+      <?php   
+
+      include("../MySQL/conexion.php");
+           $consulta = "SELECT * FROM noticias where id_noticias = 1";
+           $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+          while ($columna = mysqli_fetch_array( $resultado ))
+          {
+            echo '<div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="noticia.php?id=' . $columna['id_noticias'] . '"
+            style="text-decoration:none;color:black">
+            <div class="panel-heading" style="background-color: gray"><h4 style="color:black">'. $columna['titulo'] .'</h4></div>
+            <div align="center"><img src="../'. $columna['foto'] .'" class="img-responsive"></div>
+            </a></div>';
+          } 
+          mysqli_close( $conexion );
+       ?>
     </div>
   </div>
 
@@ -161,10 +173,21 @@
     </div>
 
     <div class="col-sm-4"> 
-      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="noticia2.php" style='text-decoration:none;color:black'>
-        <div class="panel-heading" style="background-color: gray"><h3 style="color:black">Guillermo del Toro habla sobre Death Stranding</h3></div>
-        <div align="center"><img src="../images/toro.jpg" class="img-responsive"></div>
-      </a></div>
+      <?php   
+
+      include("../MySQL/conexion.php");
+           $consulta = "SELECT * FROM noticias where id_noticias = 2";
+           $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+          while ($columna = mysqli_fetch_array( $resultado ))
+          {
+            echo '<div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="noticia.php?id=' . $columna['id_noticias'] . '"
+            style="text-decoration:none;color:black">
+            <div class="panel-heading" style="background-color: gray"><h4 style="color:black">'. $columna['titulo'] .'</h4></div>
+            <div align="center"><img src="../'. $columna['foto'] .'" class="img-responsive"></div>
+            </a></div>';
+          } 
+          mysqli_close( $conexion );
+       ?>
     </div>
   </div>  
     

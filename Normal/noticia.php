@@ -1,29 +1,47 @@
-﻿<?php session_start();
+<?php session_start();
   
   if (isset($_SESSION['usuario'])) {
     if ($_SESSION['usuario']=="admin") {
-      header('Location: ../Admin/index_admin.php');
+      header('Location: Admin/index_admin.php');
     }
     else {
-    header('Location:../usuarios/index_usuario.php');
+    header('Location:usuarios/index_usuario.php');
     }
   }
+
+    $id=$_GET['id'];
+    include("../MySQL/conexion.php");
+    $consulta = "SELECT * FROM noticias where id_noticias='$id'";
+    $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+    
+      while ($columna = mysqli_fetch_array( $resultado ))
+    {
+    $titulo = $columna['titulo']; 
+    $info = $columna['info'];
+    $contenido = $columna['Contenido'];
+    $autor = $columna['autor'];
+    $fecha_subida = $columna['fecha_subida'];
+    $foto = $columna['foto'];   
+
+    }
+    mysqli_close( $conexion );
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
   <link rel="shortcut icon" href="../images/ico.ico">
-  <title>Solid Joyce/Juegos</title>
+  <title>
+    <?php echo $titulo ?>
+  </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/noticias.css">
 </head>
-<body>
-
+<body style="background-color:#1abc9c">
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -32,7 +50,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a href="../index.php"><img src="../images/LogoSFC.png" style="position: relative; top: 0; left: 0;width:50px; height:50px"></a>
+      <a href="index.php"><img src="../images/LogoSFC.png" style="position: relative; top: 0; left: 0;width:50px; height:50px"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -47,30 +65,22 @@
     </div>
   </div>
 </nav>
+<div class="container-fluid-news bg-1 text-center">
+  <h3>
+      <?php echo $titulo ?>
+    </h3>
+  <img src=<?php echo'"../' . $foto  . '"' ?> class="img-circle" width="250" height="250">
+  <h4>
+    <?php echo $info ?>
+  </h4>
+</div>
 
-<h1 align="center" style="color:white;font-family: Jazz LET;font-size: 50px">JUEGOS</h1>
+<div class="container-fluid-news bg-2 text-center">
+      <?php echo $contenido ?>
+    </p>
 
-<div class="container">    
-	<div class="row">
-		<?php
-			include("../MySQL/conexion.php");
-           $consulta = "SELECT * FROM juegos";
-           $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-          while ($columna = mysqli_fetch_array( $resultado ))
-          {
-            echo'<div class="col-sm-4"> 
-			      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="juego.php?id=' . $columna['id_juego']. '" style="text-decoration:none;color:black">
-			        <div class="panel-heading" style="background-color: gray" >
-			        <b>'. $columna['Nombre'].'</b></div>
-			        <div align="center"><img src="../'. $columna['Portada'] .'" class="img-responsive"></div></a>
-			       </div>
-			    </div>';
-          }
-          mysqli_close( $conexion );
-		?>
-	</div>   
-</div><br>
-
+    <p style="opacity: 0.1">Autor: <?php echo $autor ?></p>
+</div>
 
 <footer  class="container-fluid text-center">
   <p style="color:white" >© 2017 Solid Joyce Corporation. Todos los derechos reservados. Todas las marcas registradas pertenecen a sus respectivos dueños en UABC y otras facultades.
@@ -92,4 +102,4 @@ Todos los precios incluyen IVA (donde sea aplicable).</p>
 </footer>
 
 </body>
-</html>
+</html> 

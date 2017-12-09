@@ -1,4 +1,4 @@
-﻿<?php session_start();
+<?php session_start();
   
   if (isset($_SESSION['usuario'])) {
     if ($_SESSION['usuario']=="admin") {
@@ -8,14 +8,32 @@
   else{
     header('Location:../index.php');
   }
-?>
 
+    $id=$_GET['id'];
+    include("../MySQL/conexion.php");
+    $consulta = "SELECT * FROM noticias where id_noticias='$id'";
+    $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+    
+      while ($columna = mysqli_fetch_array( $resultado ))
+    {
+    $titulo = $columna['titulo']; 
+    $info = $columna['info'];
+    $contenido = $columna['Contenido'];
+    $autor = $columna['autor'];
+    $fecha_subida = $columna['fecha_subida'];
+    $foto = $columna['foto'];   
+
+    }
+    mysqli_close( $conexion );
+?>
 
 <!DOCTYPE html>
 <html>
 <head>
   <link rel="shortcut icon" href="../images/ico.ico">
-  <title>Noticias-Guillermo</title>
+  <title>
+    <?php echo $titulo ?>
+  </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -24,6 +42,7 @@
   <link rel="stylesheet" href="../css/noticias.css">
 </head>
 <body style="background-color:#1abc9c">
+
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -61,29 +80,20 @@
   </div>
 </nav>
 <div class="container-fluid-news bg-1 text-center">
-  <h3>Guillermo del Toro habla sobre Death Stranding</h3>
-  <img src="https://cineactual.net/fotos/guillermodeltoro_03.jpg" class="img-circle" alt="Guillermo del Toro" width="250" height="250">
-  <h4>El cineasta asegura que aún no ha visto gameplay del juego de Kojima</h4>
+  <h3>
+      <?php echo $titulo ?>
+    </h3>
+  <img src=<?php echo'"../' . $foto  . '"' ?> class="img-circle" width="250" height="250">
+  <h4>
+    <?php echo $info ?>
+  </h4>
 </div>
 
 <div class="container-fluid-news bg-2 text-center">
-    <p align="justify">Sin duda alguna, todavía queda un largo camino para jugar Death Stranding, el nuevo título de Hideo Kojima. Uno de los implicados en este proyecto es el cineasta Guillermo del Toro, quien recientemente habló sobre el título y su relación con el desarrollador japonés.</p>
-    <br>
-    <p align="justify">Durante una entrevista con el medio IGN, el cineasta aseguró que todavía no ha visto nada de gameplay de Death Stranding. Por lo que espera que Kojima, creativo con el que ha hecho una gran amistad, le muestre algo del título en breve.</p>
-    <br>
-    <p align="justify">"Ha sido genial como una amistad, y ha sido grandioso como una experiencia de aprendizaje. En Death Stranding solo soy un títere. No sé qué es lo que me hará hacer. Supuestamente me va a mostrar el gameplay en las siguientes semanas", afirmó el creativo.</p>
-    <br>
-    <p align="justify">Guillermo del Toro también trabajó en P.T., inicio de lo que sería Silent Hills. Por tal motivo, también habló brevemente sobre su participación en este proyecto: "Mi experiencia más gratificante fue conocerlo y ayudarlo a realizar P.T.", dijo el cineasta a pesar de que el juego no llegó a buen puerto.</p>
-    <br>
-    <p align="justify">Death Stranding no cuenta con una ventana de lanzamiento. Sin embargo, Kojima asegura que su desarrollo va por buen camino y que estará disponible durante la vida activa de PlayStation 4.</p>
-    <br>
-    <p align="justify">Asimismo, sabemos que el desarrollador japonés tomará riesgos en este proyecto. Por otro lado, Guillermo del Toro habló hace un par de meses sobre su papel como personaje en Death Stranding.</p>
-    <br>
-    <p align="justify">Al parecer, el cineasta sigue interesado en los videojuegos, pues hace poco declaró que le gustaría hacer una película de BioShock. Visita este enlace para saber más de Death Stranding, como información de los avances en el uso del motion capture.</p>
-    <br>
-    <p align="justify">¿Crees que pronto veamos algo nuevo de este título? ¿Cuándo crees que vaya a estar disponible? Compártenos tu opinión en los comentarios.
-    <br><br>
-    Fuente: <a href="http://www.levelup.com">LevelUp</a></p>
+      <?php echo $contenido ?>
+    </p>
+
+    <p style="opacity: 0.1">Autor: <?php echo $autor ?></p>
 </div>
 
 <footer  class="container-fluid text-center">
@@ -104,5 +114,6 @@ Todos los precios incluyen IVA (donde sea aplicable).</p>
   </div>
 </div>
 </footer>
+
 </body>
 </html> 

@@ -55,6 +55,7 @@
       <ul class="nav navbar-nav">
         <li><a href="../index.php">Inicio</a></li>
         <li><a href="Lista Juegos.php">Juegos</a></li>
+        <li><a href="Lista noticias.php">Noticias</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="../registro.php"><span class="glyphicon glyphicon-user"></span> Registrar</a></li>

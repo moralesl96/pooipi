@@ -1,12 +1,12 @@
-﻿<?php session_start();
+<?php session_start();
   
   if (isset($_SESSION['usuario'])) {
     if ($_SESSION['usuario']=="admin") {
       header('Location: ../Admin/index_admin.php');
     }
-    else {
-    header('Location:../usuarios/index_usuario.php');
-    }
+  }
+  else{
+    header('Location:../index.php');
   }
 ?>
 
@@ -14,7 +14,7 @@
 <html>
 <head>
   <link rel="shortcut icon" href="../images/ico.ico">
-  <title>Solid Joyce/Juegos</title>
+  <title>Noticias</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -48,23 +48,23 @@
   </div>
 </nav>
 
-<h1 align="center" style="color:white;font-family: Jazz LET;font-size: 50px">JUEGOS</h1>
+<h1 align="center" style="color:white;font-family: Jazz LET;font-size: 50px">NOTICIAS</h1>
 
 <div class="container">    
 	<div class="row">
 		<?php
 			include("../MySQL/conexion.php");
-           $consulta = "SELECT * FROM juegos";
+           $consulta = "SELECT * FROM noticias";
            $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
           while ($columna = mysqli_fetch_array( $resultado ))
           {
-            echo'<div class="col-sm-4"> 
-			      <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="juego.php?id=' . $columna['id_juego']. '" style="text-decoration:none;color:black">
-			        <div class="panel-heading" style="background-color: gray" >
-			        <b>'. $columna['Nombre'].'</b></div>
-			        <div align="center"><img src="../'. $columna['Portada'] .'" class="img-responsive"></div></a>
-			       </div>
-			    </div>';
+           echo'<div class="col-sm-4"> 
+                  <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="noticia.php?id=' . $columna['id_noticias'] . '"
+                  style="text-decoration:none;color:black">
+                  <div class="panel-heading" style="background-color: gray"><h4 style="color:black">'. $columna['titulo'] .'</h4></div>
+                  <div align="center"><img src="../'. $columna['foto'] .'" class="img-responsive"></div>
+                  </a></div>
+                </div> ';
           }
           mysqli_close( $conexion );
 		?>
