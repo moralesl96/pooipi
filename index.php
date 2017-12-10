@@ -59,22 +59,49 @@
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-      <div class="item active"><a href="Proximamente.php"></a>
-        <a href="Proximamente.php"><img src="images/banners/banner1.jpg" style="width:1280px; height:400px"></a>
+      <div class="item active">
+        <?php
+            include("MySQL/conexion.php");
+                 $consulta = "SELECT * FROM juegos where Nombre ='Cuphead '";
+                 $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+                while ($columna = mysqli_fetch_array( $resultado ))
+                {
+                  echo '<a href="Normal/juego.php?id=' . $columna['id_juego']. '">';
+                }
+              mysqli_close( $conexion );
+          ?><img src="images/banners/banner1.jpg" style="width:1280px; height:400px"></a>
         <div class="carousel-caption">
           
         </div>      
       </div>
 
       <div class="item">
-        <a href="Proximamente.php"><img src="images/banners/banner2.jpg" style="width:1280px; height:400px"></a>
+        <?php
+            include("MySQL/conexion.php");
+                 $consulta = "SELECT * FROM juegos where Nombre ='Mario Party 3'";
+                 $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+                while ($columna = mysqli_fetch_array( $resultado ))
+                {
+                  echo '<a href="Normal/juego.php?id=' . $columna['id_juego']. '">';
+                }
+              mysqli_close( $conexion );
+          ?><img src="images/banners/banner2.jpg" style="width:1280px; height:400px"></a>
         <div class="carousel-caption">
           
         </div>      
       </div>
 
       <div class="item">
-        <a href="Proximamente.php"><img src="images/banners/banner3.jpg" style="width:1280px; height:400px"></a>
+        <?php
+            include("MySQL/conexion.php");
+                 $consulta = "SELECT * FROM juegos where id_juego=8";
+                 $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+                while ($columna = mysqli_fetch_array( $resultado ))
+                {
+                  echo '<a href="Normal/juego.php?id=' . $columna['id_juego']. '">';
+                }
+              mysqli_close( $conexion );
+          ?><img src="images/banners/banner3.jpg" style="width:1280px; height:400px"></a>
         <div class="carousel-caption">
           
         </div>      

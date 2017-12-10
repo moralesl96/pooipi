@@ -191,9 +191,22 @@
 <div style="color:white" class="container text-center">    
   <h3 ">Noticias Relevantes</h3>
   <div style="color:black" class="row">
-    <div class="col-sm-3">
-      
-    </div>
+    <?php
+      include("../MySQL/conexion.php");
+           $consulta = "SELECT * FROM noticias LIMIT 4";
+           $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+          while ($columna = mysqli_fetch_array( $resultado ))
+          {
+            echo'<div class="col-sm-4"> 
+                  <div class="panel" style="background-color: #292828;border:solid;border-color: black"><a href="noticia.php?id=' . $columna['id_noticias'] . '"
+                  style="text-decoration:none;color:black">
+                  <div class="panel-heading" style="background-color: gray"><h4 style="color:black">'. $columna['titulo'] .'</h4></div>
+                  <div align="center"><img src="../'. $columna['foto'] .'" class="img-responsive"></div>
+                  </a></div>
+                </div> ';
+          }
+          mysqli_close( $conexion );
+    ?>
    
   </div>
   <hr>
