@@ -14,7 +14,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="shortcut icon" href="../images/ico.ico">
+  <link rel="shortcut icon" href="images/ico.ico">
   <title>Proximamente nuevo juego</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -57,11 +57,11 @@
       <p>
       HALF-LIFE supone un impacto en la industria de juegos con su combinación de acción frenética y narración continua y absorbente. El título de debut de Valve fue galardonado con más de 50 premios que lo consideraron el juego del año hasta convertirse en "El mejor juego para PC de la historia", galardón concedido por la revista PC Gamer, y ha vendido más de ocho millones de unidades en todo el mundo.
 
-      HOY. Todo el suspensе, los desafíos y la carga emocional del original, aunados a un realismo sorprendente y una estupenda manejabilidad: Half-Life 2 abre las puertas a un mundo en el que la presencia del jugador influye en todo lo que lo rodea, desde el entorno físico hasta el comportamiento e incluso las emociones de amigos y enemigos.
+      HOY. Todo el suspensе, los desafíos y la carga emocional del original, aunados a un realismo sorprendente y una estupenda manejabilidad: Half-Life 3 abre las puertas a un mundo en el que la presencia del jugador influye en todo lo que lo rodea, desde el entorno físico hasta el comportamiento e incluso las emociones de amigos y enemigos.
 
       El jugador vuelve a tomar la palanca del científico Gordon Freeman, quien se encuentra en una Tierra infestada por alienígenas, desposeída de todos sus recursos y en la que cada vez queda menos población. Freeman se ve envuelto en el papel nada envidiable de rescatar el mundo del mal que desencadenó en Black Mesa. Y mucha gente a la que aprecia cuenta con él.
 
-      La nueva tecnología patentada por Valve, Source®, hace posible el juego intenso y en tiempo real de Half-Life 2. Source ofrece grandes mejoras en:
+      La nueva tecnología patentada por Valve, Source®, hace posible el juego intenso y en tiempo real de Half-Life 3. Source ofrece grandes mejoras en:
 
       <ul>
       <li> Personajes: el sistema de animación facial avanzada proporciona los personajes más sofisticados jamás vistos. Con 40 "músculos" faciales definidos, los personajes humanos transmiten un despliegue completo de emociones humanas y responden al jugador con fluidez e inteligencia.</li>

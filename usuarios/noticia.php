@@ -88,6 +88,7 @@
   <h4>
     <?php echo $info ?>
   </h4>
+  <p style="color: black;opacity: 0.4">Fecha de emision: <?php echo $fecha_subida ?></p><br>
 </div>
 
 <div class="container-fluid-news bg-2 text-center">

@@ -1,7 +1,7 @@
 <?php session_start();
   
  if (isset($_SESSION['carrito'])) 
-   print_r($_SESSION['carrito']);
+  // print_r($_SESSION['carrito']);
 
   if (isset($_SESSION['usuario'])) {
     if ($_SESSION['usuario']=="admin") {

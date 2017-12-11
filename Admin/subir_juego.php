@@ -12,13 +12,29 @@
   
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)) {
     $check = @getimagesize($_FILES['foto']['tmp_name']);
+    $check1 = @getimagesize($_FILES['img1']['tmp_name']);
+    $check2 = @getimagesize($_FILES['img2']['tmp_name']);
+    $check3 = @getimagesize($_FILES['img3']['tmp_name']);
     $error='';
 
-    if ($check !== false) {
+    if ($check !== false and $check1 !== false and $check2 !== false and $check3 !== false) {
       $carpeta_destino = '../images/';
       $foto = $carpeta_destino . $_FILES['foto']['name'];
       $foto2 = 'images/' . $_FILES['foto']['name'];
       move_uploaded_file($_FILES['foto']['tmp_name'], $foto);
+
+      $carpeta_galeria = '../images/juegos/';
+      $img1 = $carpeta_galeria . $_FILES['img1']['name'];
+      $img2 = $carpeta_galeria . $_FILES['img2']['name'];
+      $img3 = $carpeta_galeria . $_FILES['img3']['name'];
+
+      $img1BD = 'images/juegos/' . $_FILES['img1']['name'];
+      $img2BD = 'images/juegos/' . $_FILES['img2']['name'];
+      $img3BD = 'images/juegos/' . $_FILES['img3']['name'];
+
+      move_uploaded_file($_FILES['img1']['tmp_name'], $img1);
+      move_uploaded_file($_FILES['img2']['tmp_name'], $img2);
+      move_uploaded_file($_FILES['img3']['tmp_name'], $img3);
 
       $nombre=$_POST['nombre'];
       $genero=$_POST['genero'];
@@ -41,17 +57,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)) {
         }
     }
     else{
-      $error .= "<li>Error al cargar la imagen</li>";
+      $error .= "<li>Error al intentar cargar las imagenes</li>";
     }
 
     if ($error == '') {
         $fecha_registro = date('Y-m-d');
-        $statement = $conexion->prepare("INSERT INTO juegos (id_juego,Nombre,Genero, Descripcion, Portada,precio,Fecha_salida) VALUES (null, :nombre, :genero, :descripcion, :foto2,:precio, :fecha_registro)");
+        $statement = $conexion->prepare("INSERT INTO juegos (id_juego,Nombre,Genero, Descripcion, Portada,img1,img2,img3,precio,Fecha_salida) VALUES (null, :nombre, :genero, :descripcion, :foto2,:img1,:img2,:img3,:precio, :fecha_registro)");
         $statement->execute(array(
           ':nombre' => $nombre, 
           ':genero' => $genero,
           ':descripcion' => $descripcion,
           ':foto2' => $foto2,
+          ':img1' => $img1BD,
+          ':img2' => $img2BD,
+          ':img3' => $img3BD,
           ':precio' => $precio,
           ':fecha_registro' => $fecha_registro
         )); 
@@ -121,6 +140,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)) {
           <textarea style="color: black;" name="descripcion" placeholder="Descripcion del juego"></textarea>
           <label for="foto"> Selecciona foto del juego</label>
           <input type="file" name="foto"><br>
+          <label for="foto"> Selecciona fotos de muestra para el juego</label>
+          <input type="file" name="img1"><br>
+          <input type="file" name="img2"><br>
+          <input type="file" name="img3"><br>
           <div>
             <?php if (!empty($error)): ?>
                   <div class="alert alert-danger">

@@ -9,7 +9,6 @@ if (isset($_SESSION['usuario'])) {
   	{
 	include("../MySQL/conexion.php");
 	$usuario=$_SESSION['usuario'];
-	echo $usuario;
 	$borrar="DELETE from usuarios where usuario='$usuario'";
 	mysqli_query($conexion,$borrar);
 	mysqli_close($conexion);

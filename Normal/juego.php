@@ -8,6 +8,21 @@
           header( 'Location:../usuarios/index_usuario');
     }
   }
+
+
+  $id=$_GET['id'];
+  include("../MySQL/conexion.php");
+  $consulta = "SELECT * FROM juegos where id_juego=$id";
+  $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+  
+    while ($columna = mysqli_fetch_array( $resultado ))
+  {
+  	$img1 = $columna['img1'];
+  	$img2 = $columna['img2']; 
+  	$img3 = $columna['img3'];  
+  }
+  mysqli_close( $conexion );
+  
 ?>
 
 <!DOCTYPE html>
@@ -91,28 +106,22 @@
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
       </ol>
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img src="../images/Joyce/1.png" style="width:800px; height:400px">
+          <img src=<?php echo '"../'. $img1 . '"'?> style="width:800px; height:400px">
           <div class="carousel-caption">
           </div>      
         </div>
         <div class="item">
-          <img src="../images/Joyce/2.jpeg" style="width:800px; height:400px">
+          <img src=<?php echo '"../'. $img2 . '"'?> style="width:800px; height:400px">
           <div class="carousel-caption">
           </div>      
         </div>
         <div class="item">
-          <img src="../images/Joyce/3.jpeg" style="width:800px; height:400px">
-          <div class="carousel-caption">
-          </div>      
-        </div>
-        <div class="item">
-          <img src="../images/Joyce/4.jpeg" style="width:800px; height:400px">
+          <img src=<?php echo '"../'. $img3 . '"'?> style="width:800px; height:400px">
           <div class="carousel-caption">
           </div>      
         </div>

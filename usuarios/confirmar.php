@@ -1,8 +1,5 @@
 <?php session_start();
   
- //if (isset($_SESSION['carrito'])) 
-   // print_r($_SESSION['carrito']);
-
   if (isset($_SESSION['usuario'])) {
     if ($_SESSION['usuario']=="admin") {
       header('Location: ../Admin/index_admin.php');
@@ -17,7 +14,7 @@
 <html>
 <head>
   <link rel="shortcut icon" href="../images/ico.ico">
-  <title>Descarga la beta del nuevo juego</title>
+  <title>Estas seguro?</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -66,59 +63,17 @@
   </div>
 </nav>
 
+<br><br><br><br><br><br><br><br><br>
 <div class="container">
-  <br>
-  <h1>Proximamente Half life 3</h1>
-  <div style="text-align : justify;" class="juego">
-      <p>
-      HALF-LIFE supone un impacto en la industria de juegos con su combinación de acción frenética y narración continua y absorbente. El título de debut de Valve fue galardonado con más de 50 premios que lo consideraron el juego del año hasta convertirse en "El mejor juego para PC de la historia", galardón concedido por la revista PC Gamer, y ha vendido más de ocho millones de unidades en todo el mundo.
+  <h1>Estas seguro que quieres eliminar tu perfil?</h1>
 
-      HOY. Todo el suspensе, los desafíos y la carga emocional del original, aunados a un realismo sorprendente y una estupenda manejabilidad: Half-Life 3 abre las puertas a un mundo en el que la presencia del jugador influye en todo lo que lo rodea, desde el entorno físico hasta el comportamiento e incluso las emociones de amigos y enemigos.
+  <center>
+    <button class="button" type="button" onclick="window.open('borrar_perfil.php','_self')" >Si</button>
+    <button class="button" type="button" onclick="window.open('perfil.php','_self')" >No</button>
+  </center>
 
-      El jugador vuelve a tomar la palanca del científico Gordon Freeman, quien se encuentra en una Tierra infestada por alienígenas, desposeída de todos sus recursos y en la que cada vez queda menos población. Freeman se ve envuelto en el papel nada envidiable de rescatar el mundo del mal que desencadenó en Black Mesa. Y mucha gente a la que aprecia cuenta con él.
-
-      La nueva tecnología patentada por Valve, Source®, hace posible el juego intenso y en tiempo real de Half-Life 3. Source ofrece grandes mejoras en:
-
-      <ul>
-      <li> Personajes: el sistema de animación facial avanzada proporciona los personajes más sofisticados jamás vistos. Con 40 "músculos" faciales definidos, los personajes humanos transmiten un despliegue completo de emociones humanas y responden al jugador con fluidez e inteligencia.</li>
-      <li>Física: Todo, desde las piedras hasta los camiones de 2 toneladas, pasando por el agua, responde como en el mundo real, ya que obedece a las leyes de la masa, gravedad y flotabilidad.</li>
-      <li>Gráficos: el renderizador basado en matizadores de Source, como el utilizado en Pixar para crear películas como Toy Story® y Monster's, Inc.®, crea los entornos más atractivos y realistas jamás vistos en un videojuego</li>
-      </ul>
-      Inteligencia artificial: ni los aliados ni los enemigos se entregan ciegamente a la batalla. Pueden evaluar los peligros, desplazarse por terrenos peligrosos y utilizar los objetos a su alcance como armas.</p>
-  </div>
-
-
-<center><img class="img-responsive" src="../images/half_life_3.png"></center>
-
-      <div class="tabla">
-        <?php
-            $nombre=$_SESSION['usuario'];
-           include("../MySQL/conexion.php");
-           $consulta = "SELECT * FROM usuarios where usuario='$nombre'";
-           $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-            while ($columna = mysqli_fetch_array( $resultado ))
-            {
-              $fecha = $columna['registro'];
-            }
-           
-            $platino = date('Y-m-d', strtotime('-3 year'));
-
-            if ($fecha < $platino) {
-              echo "<h2>Puedes acceder a la beta del juego<h2>";
-              echo '<a href="../game/Half life 3.mp4" download="Half life 3">
-                    <font color=orange>
-                    Descargar Juego
-                    </font>
-                    </a>';
-            }
-            else{
-              echo "<h2>No tienes derecho a probar la beta de este juego, necesitas ser Platino</h2>";
-
-            }
-            mysqli_close( $conexion );
-        ?> 
-      </div>  
 </div>
+<br><br><br><br><br><br><br><br><br>
 
 <footer  class="container-fluid text-center">
   <p style="color:white" >© 2017 Solid Joyce Corporation. Todos los derechos reservados. Todas las marcas registradas pertenecen a sus respectivos dueños en UABC y otras facultades.

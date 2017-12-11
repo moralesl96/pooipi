@@ -162,7 +162,7 @@
           <h1>Opciones</h1>
           <center>
             <button class="button" type="button" onclick="window.open('cambiar_password.php','_self')" >Cambiar contraseña</button><br><br>
-            <button class="button" type="button" onclick="window.open('borrar_perfil.php','_self')" >Borrar perfil</button>
+            <button class="button" type="button" onclick="window.open('confirmar.php','_self')" >Borrar perfil</button>
           </center>
         </div>
     </div>  
