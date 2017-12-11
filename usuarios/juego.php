@@ -187,7 +187,7 @@
           mysqli_close( $conexion );
           ?>
          </p>
-         <center><a <?php echo 'href="agregar_carrito.php?id=' . $id. '"'?>><img style="width:140px; height:30px" src="../images/anadircarro.png"></a></center>
+         <center><a <?php echo 'href="carro.php?id=' . $id. '"'?>><img style="width:140px; height:30px" src="../images/anadircarro.png"></a></center>
        <div class="panel-heading" style="background-color: gray"></div>
     </div>
   </div>

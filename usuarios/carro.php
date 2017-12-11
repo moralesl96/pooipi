@@ -62,9 +62,41 @@
     </div>
   </div>
 </nav>
-<center><h1 style="color: white">Carrito de compras</h1></center>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<center><h1 style="color: white">Carrito de compras</h1></center><br><br>
 
+
+<div class="text-center">
+    <?php
+    $total=0;
+    if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
+      
+        $datos=$_SESSION['carrito'];
+
+          for ($i=0; $i <count($datos) ; $i++) { 
+    ?>
+          <div class="container">
+              <img src="../<?php echo $datos[$i]['portada']; ?>">
+              <span><?php echo $datos[$i]['nombre']; ?></span><br>
+              <span>Precio: <?php echo $datos[$i]['precio']; ?></span><br>
+              <span>Cantidad: <input type="text" value="<?php echo $datos[$i]['cantidad']; ?>" ></span><br>
+              <span>Subtotal: <?php echo $datos[$i]['cantidad']*$datos[$i]['precio']; ?></span><br>
+
+          </div>
+
+
+
+  <?php
+              $total=($datos[$i]['cantidad']*$datos[$i]['precio'])+$total;
+          }
+      }else{
+        echo "<h1>Carrito vacio</h1>";
+      }
+       
+      echo "<h2>Total: ".$total."</h2>"; 
+  ?>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <footer  class="container-fluid text-center">
   <p style="color:white" >© 2017 Solid Joyce Corporation. Todos los derechos reservados. Todas las marcas registradas pertenecen a sus respectivos dueños en UABC y otras facultades.
 Todos los precios incluyen IVA (donde sea aplicable).</p>
