@@ -143,8 +143,9 @@
         </p>
       </div>
 
-      <div style="text-align: center;" class="col-sm-3">
-        <h2>Lista amigos</h2>
+      <div style="text-align: center;color: white;" class="col-sm-3">
+        <p>Espacio publicitario</p>
+        <a href="https://www.coca-cola.com.mx/es/home/" target="_blank" rel="noreferrer"><img src="../images/coca.jpg" width="100%"></a>
       </div>
 
     <!-- Esto ayuda a que la pagina sea estable no se porque la neta  -->

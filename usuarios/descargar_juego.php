@@ -67,7 +67,7 @@
   <h1>¡Gracias por su compra!</h1>
 
     <a href="../images/fb.png" download="fb">
-      Descargar Juego
+      Descargue sus juegos aqui
     </a>
 </div>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

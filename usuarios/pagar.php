@@ -5,94 +5,27 @@
       header('Location: ../Admin/index_admin.php');
     }
   }
-  else{
-    header('Location:../index.php');
+  else{  
+          header( 'Location:../index.php');
   }
 
-  include("../MySQL/conexion.php");
-    if (isset($_GET['id']))
-    {
-      if (isset($_SESSION['carrito'])) {
-        
-        $arreglo=$_SESSION['carrito'];
-        $encontro=false;
-        $numero=0;
+  if (empty($_SESSION['carrito'])){
+    header( 'Location:Carro.php');
+  }
 
-        for ($i=0; $i <count($arreglo); $i++) { 
-          if ($arreglo[$i]['id']==$_GET['id']) {
-            $encontro=true;
-            $numero=$i;
-          }
-        }
-        if ($encontro==true) {
-          $arreglo[$numero]['cantidad']=$arreglo[$numero]['cantidad']+1; 
-          $_SESSION['carrito']=$arreglo;
-        }
-        else{
-
-          $nombre="";
-            $precio=0;
-            $imagen="";
-            $consulta = "SELECT * FROM juegos where id_juego=".$_GET['id'];
-            $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-          
-                while ($columna = mysqli_fetch_array( $resultado ))
-              {
-                $nombre=$columna['Nombre'];
-                $precio=$columna['Precio'];
-                $imagen=$columna['Portada'];
-              }
-
-            $datosnuevos = array('id' =>$_GET['id'] ,
-                                'nombre' => $nombre,
-                                'precio' => $precio,
-                                'imagen' => $imagen,
-                                'cantidad' => 1);
-
-            array_push($arreglo, $datosnuevos);
-            $_SESSION['carrito']=$arreglo;
-
-        }
-      }
-    }
-      else{
-          if (isset($_GET['id'])) {
-            $nombre="";
-            $precio=0;
-            $imagen="";
-            $consulta = "SELECT * FROM juegos where id_juego=".$_GET['id'];
-            $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
-          
-                while ($columna = mysqli_fetch_array( $resultado ))
-              {
-                $nombre=$columna['Nombre'];
-                $precio=$columna['Precio'];
-                $imagen=$columna['Portada'];
-              }
-
-            $arreglo[] = array('id' =>$_GET['id'] ,
-                                'nombre' => $nombre,
-                                'precio' => $precio,
-                                'imagen' => $imagen,
-                                'cantidad' => 1);
-
-            $_SESSION['carrito']=$arreglo;
-          }
-
-      }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="shortcut icon" href="../images/ico.ico">
-  <title>Carrito de compras</title>
-  <meta charset="utf-8">
+  <link rel="shortcut icon" href="../images/ico.ico"> 
+  </title>
+  <meta http-equiv="Content-Type" content="text/html"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/stylemod.css">
 </head>
 <body>
 
@@ -133,44 +66,65 @@
     </div>
   </div>
 </nav>
-<center><h1 style="color: white">Carrito de compras</h1></center><br><br>
 
+<br><br>
 
-<div class="text-center">
-    <?php
-    $total=0;
-    if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
-      
+    
+
+<div align="center" class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <?php
+        $total=0;
         $datos=$_SESSION['carrito'];
 
           for ($i=0; $i <count($datos) ; $i++) { 
-    ?>
-          <div style="color: white;" class="container">
-              <img style="width:360px; height: 180px" src="../<?php echo $datos[$i]['imagen']; ?>"><br>
-              <h3><?php echo $datos[$i]['nombre']; ?></h3>
-              <span>Precio: <?php echo $datos[$i]['precio']; ?></span><br>
-              <span>Cantidad:<?php echo $datos[$i]['cantidad']; ?></span><br>
-              <span class="Subtotal">Subtotal: <?php echo $datos[$i]['cantidad']*$datos[$i]['precio']; ?></span><br>
-
+      ?>
+          <div align="left" style="color: white;">
+              <img style="width:180px; height: 90px" src="../<?php echo $datos[$i]['imagen']; ?>">
+              <span><?php echo $datos[$i]['nombre']; ?></span><br>
+              <div style="text-align: right;">
+                <span>Precio: <?php echo $datos[$i]['precio']; ?></span>
+                <span>, Cantidad:<?php echo $datos[$i]['cantidad']; ?></span>
+                <span class="Subtotal">, Subtotal: <?php echo $datos[$i]['cantidad']*$datos[$i]['precio']; ?></span>
+              </div>
           </div>
 
 
 
-  <?php
+      <?php
               $total=($datos[$i]['cantidad']*$datos[$i]['precio'])+$total;
           }
-      }else{
-        echo "<h1>Carrito vacio</h1>";
-      }
+      
        if ($total!=0) {
-          echo "<h2 id='total'>Total: ".$total."</h2><br>"; 
-          echo '<a href="pagar.php"><img style=" width:163px; height:50px" src="../images/buy.png"></a>';
+          echo "<br><h4 style='color: white;'>Total a pagar: ".$total."</h4><br>"; 
 
        }   
-  ?>
+      ?>
+    </div>
+
+    <div class="col-md-6">
+
+      <form style="color: white" action="comprar.php" name="login" method="POST">
+        <label><b>Tarjeta de credito</b></label>
+        <input style="color: black" type="number" placeholder="Ingresa tu numero de tarjeta" name="tarjeta" min="1000000000000000" max="9999999999999999" required>
+        <label><b>Fecha de vencimiento</b></label>
+        <input style="color: black" type="date"  name="fecha" placeholder="Fecha de vencimiento" required>
+        <label><b>CVV</b></label>
+        <input style="color: black" type="number" placeholder="CVV"  name="CVV" max="999" required>
+
+        <button style="background-color: transparent;" type="submit"><img style=" width:210px; height:63px" src="../images/pagar.png"></button>
+      </form>
+    </div>
+
+
+
+    <a href="comprar.php"></a>
+</div>
 </div>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
 <footer  class="container-fluid text-center">
   <p style="color:white" >© 2017 Solid Joyce Corporation. Todos los derechos reservados. Todas las marcas registradas pertenecen a sus respectivos dueños en UABC y otras facultades.
 Todos los precios incluyen IVA (donde sea aplicable).</p>
