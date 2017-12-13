@@ -155,9 +155,29 @@
   <hr style="color: white;">
     <div class="row">
 
-      <div style="border-top: white;" class="col-sm-9">
+      <div class="col-sm-9">
         <h1>Juegos</h1>
+          <?php
+            $nombre=$_SESSION['usuario'];
+             include("../MySQL/conexion.php");
+             $consulta = "SELECT * FROM ventas where Comprador='$nombre'";
+             $resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+              while ($columna = mysqli_fetch_array( $resultado ))
+              {
+                echo '<img style="border-style: solid;border-width: 3px;border-color: white;width:180px; height: 90px" src="../';
+                echo  $columna['imagen'];
+                echo '">';
+                echo '<span style="color: white;font-size: 16px;"> '.$columna['Nombre'].'<span>';
+                echo ' Comprado el: '.$columna['Fecha_compra'];
+                echo '<br><br>';
+              }
+              mysqli_close( $conexion );
+          ?> 
+
+
       </div>
+
+
 
         <div class="col-sm-3">
           <h1>Opciones</h1>

@@ -93,6 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)) {
         <li><a href="administrar_usuarios.php">Administrar Usuarios</a></li>
         <li><a href="administrar_juegos.php">Administrar Juegos</a></li>
         <li><a href="administrar_noticias.php">Administrar Noticias</a></li>
+        <li><a href="ventas.php">Ventas</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="cerrar.php"><span class="glyphicon glyphicon-remove"></span> Cerrar sesion</a></li>

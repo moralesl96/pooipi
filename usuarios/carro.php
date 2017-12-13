@@ -8,6 +8,7 @@
   else{
     header('Location:../index.php');
   }
+        
 
   include("../MySQL/conexion.php");
     if (isset($_GET['id']))
@@ -151,10 +152,8 @@
               <span>Precio: <?php echo $datos[$i]['precio']; ?></span><br>
               <span>Cantidad:<?php echo $datos[$i]['cantidad']; ?></span><br>
               <span class="Subtotal">Subtotal: <?php echo $datos[$i]['cantidad']*$datos[$i]['precio']; ?></span><br>
-
+              <a href="eliminar_carro.php?id=<?php echo $datos[$i]['id']; ?> ">Eliminar del carro</a>
           </div>
-
-
 
   <?php
               $total=($datos[$i]['cantidad']*$datos[$i]['precio'])+$total;

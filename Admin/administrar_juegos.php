@@ -44,6 +44,7 @@
         <li><a href="administrar_usuarios.php">Administrar Usuarios</a></li>
         <li><a href="administrar_juegos.php">Administrar Juegos</a></li>
         <li><a href="administrar_noticias.php">Administrar Noticias</a></li>
+        <li><a href="ventas.php">Ventas</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="cerrar.php"><span class="glyphicon glyphicon-remove"></span> Cerrar sesion</a></li>
@@ -62,7 +63,7 @@
     <button class="button" type="button" onclick="window.open('subir_juego.php','_self')" >Agregar juegos</button>
     </center>
   </div>
-<div class="container">
+<div>
     <center>
         <div class="table-responsive">
         <?php

@@ -40,3 +40,28 @@ body {
   border-color: white;
   border-radius: 100px;
 }
+
+table {
+    color: white;
+    border-collapse: collapse;
+    border: 4px;
+    width: 64%;
+   }
+td {
+   color: white;
+    text-align: center;
+    border: 3px solid white;
+}
+
+th {
+   color: white;
+    text-align: center;
+    height: 50px;
+    border: 3px solid white;
+}
+
+h1 {
+
+  color: white;
+  text-align: center;
+}
