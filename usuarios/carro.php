@@ -115,7 +115,7 @@
         <li><a href="perfil.php">Perfil</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span><img class="user" style=" width:23px; height:23px" src=
+        <li><a href="perfil.php"><span><img class="user" style=" width:23px; height:23px" src=
           <?php
             $nombre=$_SESSION['usuario'];
            include("../MySQL/conexion.php");
@@ -150,7 +150,7 @@
               <img style="width:360px; height: 180px" src="../<?php echo $datos[$i]['imagen']; ?>"><br>
               <h3><?php echo $datos[$i]['nombre']; ?></h3>
               <span>Precio: <?php echo $datos[$i]['precio']; ?></span><br>
-              <span>Cantidad:<?php echo $datos[$i]['cantidad']; ?></span><br>
+              <span>Cantidad: <?php echo $datos[$i]['cantidad']; ?></span><br>
               <span class="Subtotal">Subtotal: <?php echo $datos[$i]['cantidad']*$datos[$i]['precio']; ?></span><br>
               <a href="eliminar_carro.php?id=<?php echo $datos[$i]['id']; ?> ">Eliminar del carro</a>
           </div>

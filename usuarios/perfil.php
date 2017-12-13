@@ -43,7 +43,7 @@
         <li><a href="perfil.php">Perfil</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span><img class="user" style=" width:23px; height:23px" src=
+        <li><a href="perfil.php"><span><img class="user" style=" width:23px; height:23px" src=
           <?php
             $nombre=$_SESSION['usuario'];
            include("../MySQL/conexion.php");
@@ -168,7 +168,8 @@
                 echo  $columna['imagen'];
                 echo '">';
                 echo '<span style="color: white;font-size: 16px;"> '.$columna['Nombre'].'<span>';
-                echo ' Comprado el: '.$columna['Fecha_compra'];
+                echo ' ,Comprado el: '.$columna['Fecha_compra'].', ';
+                echo '<a   href="recibo.php?id='.$columna['id_ventas'].'"><font color=yellow>Generar recibo de este producto</font></a>';
                 echo '<br><br>';
               }
               mysqli_close( $conexion );

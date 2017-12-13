@@ -14,7 +14,7 @@
 <html>
 <head>
   <link rel="shortcut icon" href="../images/ico.ico">
-  <title>Compra realizada con exito</title>
+  <title>Mi perfil</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -62,17 +62,45 @@
     </div>
   </div>
 </nav>
+<br><br>
+<div style="color: white;" class="container">
+	<div class="row">
+		<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<?php
+				if (isset($_GET['id'])){
+						$id=$_GET['id'];
+						include("../MySQL/conexion.php");
+			           	$consulta = "SELECT * FROM ventas where id_ventas='$id'";
+			           	$resultado = mysqli_query( $conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos");
+			           	echo'<h1>Recibo de compra<br><br></h1>';
+			           	echo '<div style="text-align: center;border: solid;">';
+			            while ($columna = mysqli_fetch_array( $resultado ))
+			            {
+			           		echo '<img style=" width:350px; height:170px" src="../'.$columna['imagen'].'">';
+			            	echo '<p>Numero de venta: '.$columna['Noventa'].'</p>';
+			            	echo '<p>Nombre del articulo: '. $columna['Nombre'] .'</p>';
+			            	echo '<p>Precio: '. $columna['Precio'] .'</p>';
+			            	echo '<p>Cantidad: '. $columna['cantidad'] .'</p>';
+			            	echo '<p>Pagado: '. $columna['subtotal'] .'</p>';
+			            	echo '<p>Fecha de compra: '. $columna['Fecha_compra'] .'</p>';
+			            	echo '<img style=" width:193px; height:73px" src="../images/firma.png">';
+			            	echo '<p>Felipe Morales Prieto</p>';
+			            	echo '<p>Creador de Solid Joyce Corporation©</p>';
+			            }
 
-<div style="color:white; text-align: center;">
-  <h1>¡Gracias por su compra!</h1>
+			            echo '</div>';
+			            mysqli_close( $conexion );
 
-    <a href="../images/fb.png" download="fb">
-      Descargue sus juegos aqui
-    </a>
+			     }
+			     else{
+			     	echo '<h1>Error no se selecciono ningun Juego para recibido</h1>';
+			     }
+				?>
+			</div>
+		<div class="col-md-4"></div>
+	</div>
 </div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-
 
 <footer  class="container-fluid text-center">
   <p style="color:white" >© 2017 Solid Joyce Corporation. Todos los derechos reservados. Todas las marcas registradas pertenecen a sus respectivos dueños en UABC y otras facultades.

@@ -61,7 +61,7 @@
         <li><a href="perfil.php">Perfil</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span><img class="user" style=" width:23px; height:23px" src=
+        <li><a href="perfil.php"><span><img class="user" style=" width:23px; height:23px" src=
           <?php
             $nombre=$_SESSION['usuario'];
            include("../MySQL/conexion.php");
